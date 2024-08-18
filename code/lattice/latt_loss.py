@@ -1,17 +1,16 @@
-import sys
 import os
-
-import torch
+# import torch
 import numpy as np
-import mace
+# import mace
+import csv
 
-from mace.calculators import mace_mp, MACECalculator
+from mace.calculators import MACECalculator
 from ase.optimize import BFGS
 
 from ase import atoms
-from ase.io import read, write
+from ase.io import *
 
-from ase.constraints import StrainFilter, UnitCellFilter
+from ase.constraints import ExpCellFilter
 from ase.spacegroup.symmetrize import FixSymmetry
 from ase.geometry.cell import *
 
@@ -20,69 +19,83 @@ from ase.geometry.cell import *
 '''
 This code is intended to assess the lattice parameter optiisation
 from MACE as a loss function, to return optimal parameters more
-similar to the parent atomic system.
+similar to the parent atomic system. Materials Project database
+should be an optimal source of crystals, as they have been double-
+refined, both in cell and atomic parameters.
 
 Setup: Given a cell, optimise the geometry and return new cell
-parameters as y_pred.
+parameters as y_pred. Compare with old cell parameters (y) to
+evaluate the loss function.
 
 '''
 
-# Loss Function
-def loss_function(atoms):
-	# Get the matrix of atomic descriptors
-    descriptors = calculator.get_descriptors(atoms)
+# Define Simple Loss Function
+def loss(atoms):
+
+    return origin - cell_to_cellpar(atoms.cell)
 
 
+# Define CSV Writer
+def writer():
+    with open(base + filename.replace('.cif', '.csv'), 'a', newline='') as f:
+        writer = csv.writer(f, delimiter=',')
+        writer.writerow(loss(atoms))
+        f.close()
+    # Attach write attribute to allow dyn.attach
+    # THIS IS REALLY GROSS CODE, HELP
+    data = loss(atoms)
+    d = data
+    data = Object()
+    data.write = str(d)
+    return data
 
 
-# Set File
-file = sys.argv[1]
+# Set to object to allow attaching write in writer func
+class Object(object):
+    pass
+
+
+# Import File
+file = '/home/camgur/Documents/Coding/Goward/MACE/lattice/LiAlO2_430184.cif'
 filename = os.path.basename(file)
-base = '/home/camgur/Documents/Coding/Goward/MACEMP0/Resources'
+base = '/home/camgur/Documents/Coding/Goward/MACE/lattice/'
+with open(base + filename.replace('.cif', '.csv'), 'w') as f:
+    wrt = csv.writer(f, delimiter=',')
+    wrt.writerow(['a', 'b', 'c', 'alpha', 'beta', 'gamma'])
+    f.close()
 
 # Importing CIF
 atoms = read(file)
-
-# Setting the MACE-MP-0 Calculator
-calculator = MACECalculator(model_paths='~/projects/rrg-ravh011/cgurwell/Ion_Channels/2024-01-07-mace-128-L2_epoch-199.model',
+atoms.calc = MACECalculator(model_paths='/home/camgur/Documents/Coding/Goward/MACE/2024-01-07-mace-128-L2_epoch-199.model',
                             dispersion=False, device='cuda', default_dtype='float64')
-atoms.calc = calculator
-
-# Preserve Unit Cell Symmetry
 atoms.set_constraint(FixSymmetry(atoms))
-
-# Compute Cell Parameters
-cell = cellpar_to_cell
+origin = cell_to_cellpar(atoms.cell)
 
 
+# Set Optimise (Atomic and Cell Params)
+opt = BFGS(ExpCellFilter(atoms), trajectory=base + filename.replace('.cif', '.traj'))
+opt.attach(writer)
 
 
+'''
+**Requires the object to have .write attribute for dyn.attach**
+https://github.com/qsnake/ase/blob/master/ase/optimize/optimize.py
 
+def attach(self, function, interval=1, *args, **kwargs):
+    """Attach callback function.
 
+    At every *interval* steps, call *function* with arguments
+    *args* and keyword arguments *kwargs*."""
 
+    if not hasattr(function, '__call__'):
+        function = function.write
+    self.observers.append((function, interval, args, kwargs))
+'''
 
-
-
-
-
-
-
-
-
-
-
-# Set Optimise
-opt = BFGS(UnitCellFilter(atoms), trajectory=base + filename.replace('.cif', '.traj'))
-
-opt.attach(loss_function)
-
-
-assert 0
 
 # Run Optimise
-opt.run(fmax=1e-4)
-
-atoms.write(base + filename)
+opt.run(fmax=1e-4, steps=50)
+atoms.write(base + filename.replace('.cif', '_opt.cif'))
 
 print('Finished Opt')
 
