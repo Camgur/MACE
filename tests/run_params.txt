@@ -1,0 +1,3 @@
+python bvel_copy_copy.py 'C:\Users\camgu\Goward Group\Code\Ion_Channels\Code\cif\mp-694.cif' 'Li1+' 10.0 0.05 100 5.0
+
+python bvel_copy_all.py 'C:\Users\camgu\Goward Group\Code\Ion_Channels\Code\cif' 'Li1+' 10.0 0.3 100 5.0
