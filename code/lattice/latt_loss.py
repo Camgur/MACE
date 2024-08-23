@@ -72,7 +72,7 @@ origin = cell_to_cellpar(atoms.cell)
 
 # Set Optimise (Atomic and Cell Params)
 opt = BFGS(ExpCellFilter(atoms), trajectory=base + filename.replace('.cif', '.traj'))
-opt.attach(writer)
+opt.attach(writer())
 
 
 '''
