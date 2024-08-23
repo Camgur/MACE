@@ -108,5 +108,5 @@ for image in images:
 plt.show()
 
 # Optimize:
-optimizer = BFGS(neb, trajectory='MACE\\elastic\\LiAlO2\\neb.traj')
+optimizer = BFGS(neb, trajectory='neb.traj')
 optimizer.run()
