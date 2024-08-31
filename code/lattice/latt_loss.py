@@ -8,8 +8,8 @@ from ase.optimize import BFGS
 from ase import atoms
 from ase.io import *
 
-from ase.constraints import ExpCellFilter
-from ase.spacegroup.symmetrize import FixSymmetry
+from ase.filters import FrechetCellFilter
+from ase.constraints import FixSymmetry
 from ase.geometry.cell import *
 
 # https://docs.matlantis.com/atomistic-simulation-tutorial/en/
@@ -41,12 +41,12 @@ def writer():
         f.close()
     # Attach write attribute to allow dyn.attach
     # THIS IS REALLY GROSS CODE, HELP
-    data = loss(atoms)
-    d = data
     data = Object()
-    data.write = str(d)
+    data.write = iterable
     return data
 
+def iterable():
+    pass
 
 # Set to object to allow attaching write in writer func
 class Object(object):
@@ -71,7 +71,7 @@ origin = cell_to_cellpar(atoms.cell)
 
 
 # Set Optimise (Atomic and Cell Params)
-opt = BFGS(ExpCellFilter(atoms), trajectory=base + filename.replace('.cif', '.traj'))
+opt = BFGS(FrechetCellFilter(atoms), trajectory=base + filename.replace('.cif', '.traj'))
 opt.attach(writer())
 
 

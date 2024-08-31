@@ -3,7 +3,7 @@ import sys
 import numpy as np
 
 from ase.calculators.espresso import Espresso, EspressoProfile
-from ase.optimize.fire import FIRE as QuasiNewton
+from ase.optimize import BFGS
 
 from ase import atoms
 from ase.atoms import *
@@ -55,8 +55,8 @@ pseudo = {
     'Li': 'Li.pbe-tm-gipaw-dc.UPF', 
     'O': 'O.pbe-tm-new-gipaw-dc.UPF'}
 profile = EspressoProfile(
-    command='mpiexec -oversubscribe -n 12 neb.x', 
-    pseudo_dir='/home/camgur/Documents/Coding/Goward/ml_nmr/pseudo')
+    command='mpiexec -oversubscribe -n 12 pw.x', 
+    pseudo_dir='/home/camgur/Documents/Coding/Goward/espresso/pseudo')
 data = {
     'control': {'tstress': True, 'tprnfor': True, 
                 'verbosity': 'high', 
@@ -78,43 +78,25 @@ calculator = Espresso(
 )
 atoms.calc = calculator
 
-# Start NEB method
-
-# Set ion
-ion = 'Li'
-
-# Set lists
-symbols = []
-positions = []
-
-# Append target ions
-for i, n in zip(atoms.symbols, atoms.positions):
-    if i == ion:
-        symbols.append(i + str(i.index in atoms))
-        positions.append(n)
-
-symbols, positions = np.array(symbols), np.array(positions)
-
 # Set initial and final states
 initial, final = 0, 0
 
-print('\nChoose two atoms for the NEB method\n')
+print('\nDelete two atoms for the NEB method\n')
 # Interactively ask for user input
 while True:
     initial, final = atoms.copy(), atoms.copy()
     initial.edit()
     final.edit()
     yesno = input('Continue? y/n\n')
-    print(initial)
     if yesno == 'y':
         break
 
 # Run optimisation of initial and final
 for image in [initial, final]:
-    # image.calc = calculator
-    # optimizer = BFGS(image, trajectory=None)
-    print('Running opt')
-    # optimizer.run(fmax=1e-4)
+    image.calc = calculator
+    optimizer = BFGS(image, trajectory=None)
+    print('Running opt #', [initial, final].index(image) + 1)
+    optimizer.run(fmax=5e-3)
 print('Finished opt')
 
 # Setup NEB
@@ -125,22 +107,8 @@ neb = NEB(images, climb=True, allow_shared_calculator=True)
 # Interpolate the potisions linearly
 neb.interpolate()
 
+# Print the intermediate images for Quantum Espresso (angstroms)
 for image in images:
-    print(image.positions, '\n')
-
-assert 0
-
-
-fig, ax = plt.subplots()
-# Set calculators:
-for image in images:
-    image.calc = calculator
-    plot_atoms(image, ax, radii=0.2, rotation=('90x,90y,90z'))
-    # view(image)
-plt.show()
-
-# Optimize:
-i = 0
-optimizer = QuasiNewton(neb, trajectory='./Goward/MACE/elastic/LiAlO2/neb_esp.traj')
-optimizer.attach(printer())
-optimizer.run(fmax=0.05)
+    print('\nImage: ', images.index(image) + 1)
+    for a in image.positions:
+        print(*np.round(a, 6))
