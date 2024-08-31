@@ -8,8 +8,8 @@ from ase.optimize import BFGS
 from ase import atoms
 from ase.io import *
 
-from ase.filters import FrechetCellFilter
 from ase.constraints import FixSymmetry
+from ase.filters import FrechetCellFilter
 from ase.geometry.cell import *
 
 # https://docs.matlantis.com/atomistic-simulation-tutorial/en/
@@ -45,6 +45,9 @@ def writer():
     data.write = iterable
     return data
 
+# Define a function that does nothing to be iterable above
+def iterable():
+    pass
 
 # Set to object to allow attaching write in writer func
 class Object(object):
