@@ -8,8 +8,8 @@ from ase.optimize import BFGS
 from ase import atoms
 from ase.io import *
 
-from ase.constraints import ExpCellFilter
-from ase.spacegroup.symmetrize import FixSymmetry
+from ase.constraints import FixSymmetry
+from ase.filters import FrechetCellFilter
 from ase.geometry.cell import *
 
 # https://docs.matlantis.com/atomistic-simulation-tutorial/en/
@@ -41,12 +41,13 @@ def writer():
         f.close()
     # Attach write attribute to allow dyn.attach
     # THIS IS REALLY GROSS CODE, HELP
-    data = loss(atoms)
-    d = data
     data = Object()
-    data.write = str(d)
+    data.write = iterable
     return data
 
+# Define a function that does nothing to be iterable above
+def iterable():
+    pass
 
 # Set to object to allow attaching write in writer func
 class Object(object):
@@ -54,9 +55,9 @@ class Object(object):
 
 
 # Import File
-file = '/home/camgur/Documents/Coding/Goward/MACE/lattice/LiAlO2_430184.cif'
+file = 'C:\\Users\\camgu\\Goward\\Code\\MACE\\lattice\\LiAlO2_430184.cif'
 filename = os.path.basename(file)
-base = '/home/camgur/Documents/Coding/Goward/MACE/lattice/'
+base = 'C:\\Users\\camgu\\Goward\\Code\MACE\\lattice\\'
 with open(base + filename.replace('.cif', '.csv'), 'w') as f:
     wrt = csv.writer(f, delimiter=',')
     wrt.writerow(['a', 'b', 'c', 'alpha', 'beta', 'gamma'])
@@ -64,14 +65,14 @@ with open(base + filename.replace('.cif', '.csv'), 'w') as f:
 
 # Importing CIF
 atoms = read(file)
-atoms.calc = MACECalculator(model_paths='/home/camgur/Documents/Coding/Goward/MACE/2024-01-07-mace-128-L2_epoch-199.model',
+atoms.calc = MACECalculator(model_paths='C:\\Users\\camgu\\Goward\\Code\\MACE\\2024-01-07-mace-128-L2_epoch-199.model',
                             dispersion=False, device='cuda', default_dtype='float64')
 atoms.set_constraint(FixSymmetry(atoms))
 origin = cell_to_cellpar(atoms.cell)
 
 
 # Set Optimise (Atomic and Cell Params)
-opt = BFGS(ExpCellFilter(atoms), trajectory=base + filename.replace('.cif', '.traj'))
+opt = BFGS(FrechetCellFilter(atoms), trajectory=base + filename.replace('.cif', '.traj'))
 opt.attach(writer())
 
 
