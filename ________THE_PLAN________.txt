@@ -1,0 +1,47 @@
+This is the plan for the MACE project as of 2024-08-22.
+
+General outline: A pipeline has been created to optimise 
+the geometry and allow a user to select two atoms to perform 
+NEB calculations on using MACE. The program will then perform 
+the optimisation of the NEB calculation.
+
+A secondary experiment that is very promising has been set up 
+for the geometry optimisation. MACE seems to be in good 
+agreement with Quantum Espresso DFT relaxation when it comes 
+to the minimum energy configuration. Actual energies may not 
+be super reliable, however (unsure).
+
+The relaxed structures are then assesed by Quantum Espresso 
+for NMR parameters, which are within 0.02 ppm of difference 
+for LiAlO2 (!!). This indicates that it may be possible to 
+replace the DFT relaxation with a fully MACE-base to get a 
+quick optimisation good for most applications. NMR is a good 
+test for the validity of the model.
+
+
+What has been done?
+
+NMR and NEB calculations have been performed for LiAlO2 with 
+good results.
+
+
+What remains?
+
+Run more crystals, essentially (use CC)
+Validate the theory with experimental data
+Try to validate NEB method with DFT or alike
+
+
+To do:
+
+	- Double check: is it possible to calculate NMR from purely electron densities?
+	- Get more crystals (between 5-10 to put in the system)
+		- Can look at SE_calc paper for inspiration
+		- Ask Gillian for relevant crystals (i.e., things that would be useful)
+		- Also things we have experimental data on (esp. already published)
+	- 1-page report (dirty, showing time of experiments, etc, and good data)
+		- Rodrigo will send to Gillian to see if we can continue along with the thesis
+		- Only need to have time to calculate raw data, can put it together when have time
+		- Rodrigo is very flexible, doesn't want to bog down my experimental time with Linda's samples
+	- Polish up the NEB framework to push to a GitHub repo
+		-Send a paper to Rodrigo on how this is used in practice
