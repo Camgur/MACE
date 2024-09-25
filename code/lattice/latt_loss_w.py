@@ -93,7 +93,7 @@ def attach(self, function, interval=1, *args, **kwargs):
 
 
 # Run Optimise
-opt.run(fmax=1e-4, steps=50)
+opt.run(fmax=1e-8, steps=50)
 atoms.write(base + filename.replace('.cif', '_opt.cif'))
 
 print('Finished Opt')

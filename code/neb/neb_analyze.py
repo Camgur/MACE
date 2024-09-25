@@ -1,13 +1,15 @@
 import matplotlib.pyplot as plt
 
 from mace.calculators import MACECalculator
+from ase.visualize import view
 from ase.io import read, Trajectory
 from ase.mep import NEBTools
 
 # images = read('/home/camgur/Documents/Coding/Na12Na1.traj@-5:')
-images = read('/home/camgur/Documents/Coding/Goward/MACE/elastic/LiAlO2/neb.traj@-7:')
+images = read('MACE\elastic\LFVO\LFVO_neb_1to3.traj@-7:')
 
-calculator = MACECalculator(model_paths='/home/camgur/Documents/Coding/Chem_4PB3/Resources/2024-01-07-mace-128-L2_epoch-199.model', device='cuda', default_dtype='float64')
+calculator = MACECalculator(model_paths='C:\\Users\\camgu\\Goward\\Code\\MACE\\2024-01-07-mace-128-L2_epoch-199.model', 
+                            device='cuda', default_dtype='float64')
 
 for i in images:
     i.calc = calculator
@@ -24,3 +26,5 @@ nebtools.plot_band()
 # fig.savefig('diffusion-barrier.png')
 
 plt.show()
+
+view(images)
