@@ -1,0 +1,57 @@
+#-------------------------------------------------------------------------------------------#
+#------------------Determining the Activation Energy for Li+ in LiAlO2----------------------#
+#-------------------------------------------------------------------------------------------#
+
+
+#---------------------------------Static variables------------------------------------------#
+
+variable			T equal 298.15           		# Temperature in K
+variable			rseed equal 90125550			# RNG seed
+
+# Variables for MD
+
+variable			dt            equal 0.001		# 1 fs
+variable			steps_T_equil equal 20000		# 20 ps
+variable			steps_P_equil equal 30000		# 30 ps
+variable			tdamp         equal ${dt}*100	# thermostat damping constant
+variable			Pdamp         equal ${dt}*1000	# Pdamping constant
+
+
+#------------------------------------INITIALIZATION-----------------------------------------#
+
+#processors			1 1 *
+units				metal
+dimension			3 
+boundary			p p p
+atom_style			atomic
+atom_modify			map yes
+newton				on 
+
+
+#-------------------------------------SYSTEM INFORMATION------------------------------------#
+
+read_data			LiAlO2_430184.lmpdat  #bulk
+
+
+#--------------------------------------FORCE FIELDS-----------------------------------------#
+
+pair_style			mace
+pair_coeff			* * /home/cgurwell/projects/rrg-ravh011/cgurwell/lammps/potentials/2024-01-07-mace-128-L2_epoch-199.model-lammps.pt Li Al O
+
+
+#------------------------------------INITIAL VELOCITIES-------------------------------------#
+
+velocity			all create $T ${rseed} rot yes mom yes
+
+
+#-------------------------------------SETTINGS----------------------------------------------#
+
+timestep			${dt}
+
+thermo				100
+dump				100 all xyz 1 dump1.xyz
+
+
+#----------------------------------------RUN------------------------------------------------#
+
+run					50000

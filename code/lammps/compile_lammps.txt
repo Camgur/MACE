@@ -1,0 +1,90 @@
+#----------------LAMMPS install for CHGNet and M3GNet------------------#
+
+cmake -D CMAKE_INSTALL_PREFIX=/home/cgurwell/chgnet/ \
+      -D CMAKE_CXX_STANDARD=17 \
+      -D CMAKE_CXX_STANDARD_REQUIRED=ON \
+      -D PKG_PYTHON=ON \
+      -D BUILD_LIB=ON \
+      -D BUILD_SHARED_LIBS=on \
+      -D BUILD_MPI=ON \
+      -D BUILD_OMP=ON \
+      -D PKG_OPENMP=ON \
+      -D PKG_ML-CHGNET=ON \
+      -D PKG_ML-M3GNET=ON \
+      ../cmake
+
+make -j 4
+make install
+
+make install-python
+
+
+https://github.com/advancesoftcorp/lammps/tree/22fc3bec34a10c095222b281714af27bedd1677d
+https://www.afs.enea.it/software/lammps/doc19/html/Python_shlib.html#:~:text=2.-,Build%20LAMMPS%20as%20a%20shared%20library%20using%20CMake,both%20options%20are%20needed!)
+https://docs.lammps.org/Python_install.html
+
+
+#----------------------------------------------------------------------#
+# Also update the path to C+ from the Digital alliance in ~/.bashrc
+
+export CPLUS_INCLUDE_PATH=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/python/3.10.13/Include:$CPLUS_INCLUDE_PATH
+
+https://unix.stackexchange.com/questions/209335/how-to-install-python-dev-deb-file-without-root
+
+
+#-----------------------LAMMPS install for MACE------------------------#
+
+cmake -D CMAKE_INSTALL_PREFIX=/home/cgurwell/MACE/ \
+      -D CMAKE_CXX_STANDARD=17 \
+      -D CMAKE_CXX_STANDARD_REQUIRED=ON \
+      -D PKG_PYTHON=ON \
+      -D BUILD_LIB=ON \
+      -D BUILD_SHARED_LIBS=on \
+      -D BUILD_MPI=ON \
+      -D BUILD_OMP=ON \
+      -D PKG_OPENMP=ON \
+      -D PKG_ML-MACE=ON \
+      -D CMAKE_PREFIX_PATH=$(pwd)/../../libtorch \
+      ../cmake
+	  
+make -j 4
+make install
+
+make install-python
+
+
+**** NOTE: MACE-MP-0 may automatically interface with LAMMPS without needing a conversion ****
+
+Possibly pass:
+      -D USE_CUDA=0 \
+      -D USE_CUDANN=0 \
+	  
+https://github.com/mir-group/pair_nequip/issues/29
+	  
+
+#-----------------------LAMMPS install for ORB-------------------------#
+
+cmake -D CMAKE_INSTALL_PREFIX=/home/cgurwell/orb/ \
+      -D CMAKE_CXX_STANDARD=17 \
+      -D CMAKE_CXX_STANDARD_REQUIRED=ON \
+      -D PKG_PYTHON=ON \
+      -D BUILD_LIB=ON \
+      -D BUILD_SHARED_LIBS=on \
+      -D BUILD_MPI=ON \
+      -D BUILD_OMP=ON \
+      -D PKG_OPENMP=ON \
+      -D PKG_ML-ORB=ON \
+      ../cmake
+	  
+make -j 4
+make install
+
+make install-python
+
+
+**** NOTE: Either copy the orb_driver.py in each run or give the full path in the script ****
+
+https://github.com/stefanbringuier/ORB-LAMMPS-PATCH
+
+
+#----------------------------------------------------------------------#

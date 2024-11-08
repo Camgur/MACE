@@ -9,6 +9,8 @@ from ase.atoms import *
 from ase.io import *
 
 from ase.mep import NEB
+from ase.optimize import BFGS
+from ase.constraints import FixSymmetry
 
 import matplotlib.pyplot as plt
 from ase.visualize.plot import plot_atoms
@@ -16,13 +18,18 @@ from ase.visualize.plot import plot_atoms
 # Read atoms from CIF passed in arg1
 atoms = read(str(sys.argv[1]))
 filename = os.path.splitext(os.path.basename(str(sys.argv[1])))[0]
-calculator = MACECalculator(model_paths='proj/Ion_Channels/2024-01-07-mace-128-L2_epoch-199.model',
+calculator = MACECalculator(model_paths='/home/cgurwell/projects/rrg-ravh011/cgurwell/Ion_Channels/2024-01-07-mace-128-L2_epoch-199.model',
                             dispersion=False, device='cuda', default_dtype='float64')
 atoms.calc = calculator
+
+atoms.set_constraint(FixSymmetry(atoms))
+opt = BFGS(atoms, trajectory=None)
+opt.run(fmax=1e-3)
 
 # Start NEB method
 
 # Set initial and final states (using arg2, arg3 as atom indices starting from index 0)
+atoms.set_constraint()
 initial, final = atoms.copy(), atoms.copy()
 # init, finl = final[int(sys.argv[3])], initial[int(sys.argv[2])]
 del initial[int(sys.argv[3])]

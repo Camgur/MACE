@@ -1,0 +1,72 @@
+#----------------------MODELS FOR LAMMPS---------------------------#
+
+NOTE: All calculators here are compatible with ASE. In the event
+LAMMPS is too problematic, ASE MD may be used instead, though it is
+unclear how it performs compared to LAMMPS (the gold standard).
+
+
+1) MACE potential (MACE-MP-0)
+
+	Relies on a custom fork of LAMMPS. Current fork is somewhat old,
+	but work has commenced on a new fork for LAMMPS.
+
+	Currently running into issues with converting the 
+	model to .lammps format using the available tool.
+	
+	Big issue: the jit wrapper seems to not like its
+	implementation. This may require running with an
+	older version of e3nn to get the model to convert,
+	or it may simply require a rewrite.
+	
+	Reported error: unknown function in converted model
+	https://mace-docs.readthedocs.io/en/latest/guide/lammps.html
+	https://github.com/ACEsuit/mace/issues/203
+	
+	
+
+2) CHGNet potential (Crystal Hamiltonian Graph neural Network)
+
+	Included alongside the M3GNet wrappers provided by the 
+	AdvanceSoftCorp LAMMPS fork. Relies on a custom fork of LAMMPS,
+	though it is more recent than the MACE implementation.
+	
+	The implementation appears to be a python wrapper rather than
+	a model conversion like the MACE implementation. MPI is likely
+	unsupported.
+	
+	https://github.com/advancesoftcorp/lammps/tree/based-on-lammps_2Aug2023/
+	
+	
+	
+3) M3GNet potential (MatGL)
+
+	Included alongside the CHGNet wrappers provided by the 
+	AdvanceSoftCorp LAMMPS fork. Relies on a custom fork of LAMMPS,
+	though it is more recent than the MACE implementation.
+	
+	The implementation appears to be a python wrapper rather than
+	a model conversion like the MACE implementation. MPI is likely
+	unsupported.
+	
+	https://github.com/advancesoftcorp/lammps/tree/based-on-lammps_2Aug2023/
+	
+	
+	
+4) Orb potential (Orbital Materials)
+
+	Orb is currently the highest-performing uMLIP in the space, even
+	when only trained using the MPtrj training set (though the v1 model
+	which has been trained on the Alexandria training set achieves a
+	higher precision than even the closed source MatterSim developed by
+	Microsoft).
+	
+	https://matbench-discovery.materialsproject.org/
+	https://matbench-discovery.materialsproject.org/models/orb
+	
+	Orb models are easily installed in Python from PyPI but the dependency
+	Pynanoflann must be installed from git. An independently developed
+	Python wrapper has been developed for LAMMPS compatibility and does
+	not appear to require a custom fork.
+	
+	https://github.com/orbital-materials/orb-models
+	https://github.com/stefanbringuier/ORB-LAMMPS-PATCH

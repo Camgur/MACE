@@ -1,0 +1,58 @@
+&CONTROL
+  calculation = 'scf'                                                     !Calculation type
+
+  etot_conv_thr =   1.6000000000d-05                                      !Total E convergence
+  forc_conv_thr =   1.0000000000d-05                                      !Force convergence
+  outdir = './out_g/'                                                     !Working out directory
+  prefix = 'LiAlO2_r'                                                     !File name
+  pseudo_dir = './pseudo_g/'                                              !Potential directory
+  tprnfor = .true.                                                        !Print forces?
+  tstress = .true.                                                        !Print stress tensor?
+  verbosity = 'high'                                                      !Short vs long output
+/
+&SYSTEM
+  degauss =   1.4699723600d-02                                            !Gaussian smearing cut
+  ecutrho =   5.0000000000d+02                                            !Density cutoff (Ry)
+  ecutwfc =   8.0000000000d+01                                            !Plane wave cutoff (Ry)
+  ibrav = 0                                                               !Lattice type
+  nat = 16                                                                !Number of atoms
+  nosym = .false.                                                         !Symmetry?
+  ntyp = 3                                                                !Number types of atoms
+  occupations = 'smearing'                                                !Site occupations
+  smearing = 'cold'                                                       !Smearing setting
+/
+&ELECTRONS
+  conv_thr =   1.000000000d-10                                            !SCF accuracy
+  diago_thr_init = 1e-4                                                   !Eigenvalue accuracy at first diag
+  mixing_beta =   0.3                                                     !0.3-0.7 for insulators, <0.1 for metals
+/
+ATOMIC_SPECIES
+Al     26.981538 Al.pbe-tm-gipaw-dc.UPF                                   !Set potentials, mass
+Li     6.941 Li.pbe-tm-gipaw-dc.UPF
+O      15.9994 O.pbe-tm-new-gipaw-dc.UPF
+
+ATOMIC_POSITIONS crystal
+Li               0.3135655777        0.6864344223        0.7500000000
+Li               0.6864344223        0.3135655777        0.2500000000
+Li               0.1864344223        0.1864344223        0.5000000000
+Li               0.8135655777        0.8135655777        0.0000000000
+Al               0.6752718794        0.3247281206        0.7500000000
+Al               0.3247281206        0.6752718794        0.2500000000
+Al               0.8247281206        0.8247281206        0.5000000000
+Al               0.1752718794        0.1752718794        0.0000000000
+O                0.8346186089        0.2080821202        0.9789955895
+O                0.1653813911        0.7919178798        0.4789955895
+O                0.7080821202        0.6653813911        0.7289955895
+O                0.2919178798        0.3346186089        0.2289955895
+O                0.7919178798        0.1653813911        0.5210044105
+O                0.2080821202        0.8346186089        0.0210044105
+O                0.6653813911        0.7080821202        0.2710044105
+O                0.3346186089        0.2919178798        0.7710044105
+
+K_POINTS automatic
+14 14 12 1 1 1                                                               !7x7x6 shifted Monrkhorst-Pack mesh
+
+CELL_PARAMETERS angstrom                                                     !Same as before, no vc-relax procedure
+      5.1685000000       0.0000000000       0.0000000000
+      0.0000000000       5.1685000000       0.0000000000
+      0.0000000000       0.0000000000       6.2565000000

@@ -1,0 +1,11 @@
+SALLOC
+
+salloc --nodes=1 --tasks-per-node=8 --mem=16G --account=def-ravh011 --time=0:10:00
+
+module purge
+module load python/3.10.13 StdEnv/2023
+source ~/MACE/bin/activate
+
+python lamp.py
+
+scancel $JOB_ID

@@ -24,7 +24,7 @@ from ase.spacegroup.symmetrize import FixSymmetry, check_symmetry
 # Set File
 file = sys.argv[1]
 filename = os.path.basename(file)
-base = '/home/cgurwell/scratch/optimise/'
+base = '/home/cgurwell/scratch/optimise/' + filename
 
 # Importing CIF
 atoms = read(file)

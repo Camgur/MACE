@@ -1,0 +1,37 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) CCconfig        6)  ucx/1.14.1         11) flexiblas/3.3.1
+  2) gentoo/2023     7)  libfabric/1.18.0   12) imkl/2023.2.0
+  3) gcccore/.12.3   8)  pmix/4.2.4         13) StdEnv/2023
+  4) gcc/12.3        9)  ucc/1.2.0
+  5) hwloc/2.9.1     10) openmpi/4.1.5
+2024-10-30 15:02:24.968759: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-10-30 15:02:25.087104: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-10-30 15:02:25.101805: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-10-30 15:02:25.212087: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-10-30 15:02:28.020692: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/cgurwell/chgnet/lib/python3.10/site-packages/tensorflow/python/util/deprecation.py:588: calling function (from tensorflow.python.eager.polymorphic_function.polymorphic_function) with experimental_relax_shapes is deprecated and will be removed in a future version.
+Instructions for updating:
+experimental_relax_shapes is deprecated, use reduce_retracing instead
+Traceback (most recent call last):
+  File "/scratch/cgurwell/optimise/LiAlO2_430184/m3gnet/opt_m3gnet.py", line 30, in <module>
+    opt.run(fmax=1e-5, steps=400)
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/optimize/optimize.py", line 430, in run
+    return Dynamics.run(self, steps=steps)
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/optimize/optimize.py", line 275, in run
+    for converged in Dynamics.irun(self, steps=steps):
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/optimize/optimize.py", line 225, in irun
+    self.optimizable.get_forces()
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/optimize/optimize.py", line 34, in get_forces
+    return self.atoms.get_forces()
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/atoms.py", line 812, in get_forces
+    forces = self._calc.get_forces(self)
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/calculators/abc.py", line 30, in get_forces
+    return self.get_property('forces', atoms)
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/calculators/calculator.py", line 538, in get_property
+    self.calculate(atoms, [name], system_changes)
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/m3gnet/models/_dynamics.py", line 84, in calculate
+    graph = self.potential.graph_converter(atoms)
+AttributeError: type object 'Potential' has no attribute 'graph_converter'

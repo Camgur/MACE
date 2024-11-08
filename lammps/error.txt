@@ -1,0 +1,210 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) CCconfig        6)  ucx/1.14.1         11) flexiblas/3.3.1
+  2) gentoo/2023     7)  libfabric/1.18.0   12) imkl/2023.2.0
+  3) gcccore/.12.3   8)  pmix/4.2.4         13) StdEnv/2023
+  4) gcc/12.3        9)  ucc/1.2.0
+  5) hwloc/2.9.1     10) openmpi/4.1.5
+
+Lmod is automatically replacing "gcc/12.3" with "intel/2023.2.1".
+
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) flexiblas/3.3.1     2) openmpi/4.1.5
+
+terminate called after throwing an instance of 'c10::Error'
+terminate called after throwing an instance of 'c10::Error'
+terminate called after throwing an instance of 'c10::Error'
+terminate called after throwing an instance of 'c10::Error'
+  what():  open file failed because of errno 2 on fopen: , file path: 2024-01-07-mace-128-L2_epoch-199.model-lammps.pt
+Exception raised from RAIIFile at ../caffe2/serialize/file_adapter.cc:21 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x3e (0x2b5022e2456e in /home/cgurwell/libtorch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::string const&) + 0x5c (0x2b5022deef18 in /home/cgurwell/libtorch/lib/libc10.so)
+frame #2: caffe2::serialize::FileAdapter::RAIIFile::RAIIFile(std::string const&) + 0x124 (0x2b500c6e4634 in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #3: caffe2::serialize::FileAdapter::FileAdapter(std::string const&) + 0x2e (0x2b500c6e468e in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #4: caffe2::serialize::PyTorchStreamReader::PyTorchStreamReader(std::string const&) + 0x5a (0x2b500c6e2ada in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #5: torch::jit::import_ir_module(std::shared_ptr<torch::jit::CompilationUnit>, std::string const&, c10::optional<c10::Device>, std::unordered_map<std::string, std::string, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, std::string> > >&) + 0x2a5 (0x2b500d790b85 in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #6: torch::jit::import_ir_module(std::shared_ptr<torch::jit::CompilationUnit>, std::string const&, c10::optional<c10::Device>) + 0x7b (0x2b500d79139b in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #7: torch::jit::load(std::string const&, c10::optional<c10::Device>) + 0xa5 (0x2b500d791475 in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #8: lmp() [0x8b4126]
+frame #9: lmp() [0x45c184]
+frame #10: lmp() [0x462cc2]
+frame #11: lmp() [0x462f7e]
+frame #12: lmp() [0x4423cd]
+frame #13: <unknown function> + 0x2394a (0x2b50231f694a in /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6)
+frame #14: __libc_start_main + 0x85 (0x2b50231f6a05 in /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6)
+frame #15: lmp() [0x4439a1]
+
+  what():  open file failed because of errno 2 on fopen: , file path: 2024-01-07-mace-128-L2_epoch-199.model-lammps.pt
+Exception raised from RAIIFile at ../caffe2/serialize/file_adapter.cc:21 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x3e (0x2b8ede3cd56e in /home/cgurwell/libtorch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::string const&) + 0x5c (0x2b8ede397f18 in /home/cgurwell/libtorch/lib/libc10.so)
+frame #2: caffe2::serialize::FileAdapter::RAIIFile::RAIIFile(std::string const&) + 0x124 (0x2b8ec7c8d634 in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #3: caffe2::serialize::FileAdapter::FileAdapter(std::string const&) + 0x2e (0x2b8ec7c8d68e in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #4: caffe2::serialize::PyTorchStreamReader::PyTorchStreamReader(std::string const&) + 0x5a (0x2b8ec7c8bada in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #5: torch::jit::import_ir_module(std::shared_ptr<torch::jit::CompilationUnit>, std::string const&, c10::optional<c10::Device>, std::unordered_map<std::string, std::string, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, std::string> > >&) + 0x2a5 (0x2b8ec8d39b85 in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #6: torch::jit::import_ir_module(std::shared_ptr<torch::jit::CompilationUnit>, std::string const&, c10::optional<c10::Device>) + 0x7b (0x2b8ec8d3a39b in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #7: torch::jit::load(std::string const&, c10::optional<c10::Device>) + 0xa5 (0x2b8ec8d3a475 in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #8: lmp() [0x8b4126]
+frame #9: lmp() [0x45c184]
+frame #10: lmp() [0x462cc2]
+frame #11: lmp() [0x462f7e]
+frame #12: lmp() [0x4423cd]
+frame #13: <unknown function> + 0x2394a (0x2b8ede79f94a in /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6)
+frame #14: __libc_start_main + 0x85 (0x2b8ede79fa05 in /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6)
+frame #15: lmp() [0x4439a1]
+
+  what():  open file failed because of errno 2 on fopen: , file path: 2024-01-07-mace-128-L2_epoch-199.model-lammps.pt
+Exception raised from RAIIFile at ../caffe2/serialize/file_adapter.cc:21 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x3e (0x2b60f4af356e in /home/cgurwell/libtorch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::string const&) + 0x5c (0x2b60f4abdf18 in /home/cgurwell/libtorch/lib/libc10.so)
+frame #2: caffe2::serialize::FileAdapter::RAIIFile::RAIIFile(std::string const&) + 0x124 (0x2b60de3b3634 in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #3: caffe2::serialize::FileAdapter::FileAdapter(std::string const&) + 0x2e (0x2b60de3b368e in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #4: caffe2::serialize::PyTorchStreamReader::PyTorchStreamReader(std::string const&) + 0x5a (0x2b60de3b1ada in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #5: torch::jit::import_ir_module(std::shared_ptr<torch::jit::CompilationUnit>, std::string const&, c10::optional<c10::Device>, std::unordered_map<std::string, std::string, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, std::string> > >&) + 0x2a5 (0x2b60df45fb85 in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #6: torch::jit::import_ir_module(std::shared_ptr<torch::jit::CompilationUnit>, std::string const&, c10::optional<c10::Device>) + 0x7b (0x2b60df46039b in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #7: torch::jit::load(std::string const&, c10::optional<c10::Device>) + 0xa5 (0x2b60df460475 in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #8: lmp() [0x8b4126]
+frame #9: lmp() [0x45c184]
+frame #10: lmp() [0x462cc2]
+frame #11: lmp() [0x462f7e]
+frame #12: lmp() [0x4423cd]
+frame #13: <unknown function> + 0x2394a (0x2b60f4ec594a in /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6)
+frame #14: __libc_start_main + 0x85 (0x2b60f4ec5a05 in /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6)
+frame #15: lmp() [0x4439a1]
+
+  what():  open file failed because of errno 2 on fopen: , file path: 2024-01-07-mace-128-L2_epoch-199.model-lammps.pt
+Exception raised from RAIIFile at ../caffe2/serialize/file_adapter.cc:21 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x3e (0x2ae30c7d056e in /home/cgurwell/libtorch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::string const&) + 0x5c (0x2ae30c79af18 in /home/cgurwell/libtorch/lib/libc10.so)
+frame #2: caffe2::serialize::FileAdapter::RAIIFile::RAIIFile(std::string const&) + 0x124 (0x2ae2f6090634 in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #3: caffe2::serialize::FileAdapter::FileAdapter(std::string const&) + 0x2e (0x2ae2f609068e in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #4: caffe2::serialize::PyTorchStreamReader::PyTorchStreamReader(std::string const&) + 0x5a (0x2ae2f608eada in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #5: torch::jit::import_ir_module(std::shared_ptr<torch::jit::CompilationUnit>, std::string const&, c10::optional<c10::Device>, std::unordered_map<std::string, std::string, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, std::string> > >&) + 0x2a5 (0x2ae2f713cb85 in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #6: torch::jit::import_ir_module(std::shared_ptr<torch::jit::CompilationUnit>, std::string const&, c10::optional<c10::Device>) + 0x7b (0x2ae2f713d39b in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #7: torch::jit::load(std::string const&, c10::optional<c10::Device>) + 0xa5 (0x2ae2f713d475 in /home/cgurwell/libtorch/lib/libtorch_cpu.so)
+frame #8: lmp() [0x8b4126]
+frame #9: lmp() [0x45c184]
+frame #10: lmp() [0x462cc2]
+frame #11: lmp() [0x462f7e]
+frame #12: lmp() [0x4423cd]
+frame #13: <unknown function> + 0x2394a (0x2ae30cba294a in /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6)
+frame #14: __libc_start_main + 0x85 (0x2ae30cba2a05 in /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6)
+frame #15: lmp() [0x4439a1]
+
+[gra1103:24640] *** Process received signal ***
+[gra1103:24641] *** Process received signal ***
+[gra1103:24641] Signal: Aborted (6)
+[gra1103:24641] Signal code:  (-6)
+[gra1103:24642] *** Process received signal ***
+[gra1103:24642] Signal: Aborted (6)
+[gra1103:24642] Signal code:  (-6)
+[gra1103:24639] *** Process received signal ***
+[gra1103:24639] Signal: Aborted (6)
+[gra1103:24639] Signal code:  (-6)
+[gra1103:24640] Signal: Aborted (6)
+[gra1103:24640] Signal code:  (-6)
+[gra1103:24642] [ 0] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(+0x38790)[0x2b60f4eda790]
+[gra1103:24642] [ 1] [gra1103:24639] [ 0] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(+0x38790)[0x2b502320b790]
+[gra1103:24639] [ 1] [gra1103:24641] [ 0] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(+0x38790)[0x2b8ede7b4790]
+[gra1103:24641] [ 1] [gra1103:24640] [ 0] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(+0x38790)[0x2ae30cbb7790]
+[gra1103:24640] [ 1] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(+0x867ac)[0x2b50232597ac]
+[gra1103:24639] [ 2] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(+0x867ac)[0x2ae30cc057ac]
+[gra1103:24640] [ 2] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(+0x867ac)[0x2b8ede8027ac]
+[gra1103:24641] [ 2] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(gsignal+0x12)[0x2b8ede7b46f2]
+[gra1103:24641] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(+0x867ac)[0x2b60f4f287ac]
+[gra1103:24642] [ 2] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(gsignal+0x12)[0x2b60f4eda6f2]
+[gra1103:24642] [ 3] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(gsignal+0x12)[0x2ae30cbb76f2]
+[gra1103:24640] [ 3] [ 3] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(gsignal+0x12)[0x2b502320b6f2]
+[gra1103:24639] [ 3] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(abort+0xd3)[0x2b60f4ec44b2]
+[gra1103:24642] [ 4] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xa0a43)[0x2b60f4bf2a43]
+[gra1103:24642] [ 5] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(abort+0xd3)[0x2ae30cba14b2]
+[gra1103:24640] [ 4] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xa0a43)[0x2ae30c8cfa43]
+[gra1103:24640] [ 5] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(abort+0xd3)[0x2b8ede79e4b2]
+[gra1103:24641] [ 4] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xa0a43)[0x2b8ede4cca43]
+[gra1103:24641] [ 5] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(abort+0xd3)[0x2b50231f54b2]
+[gra1103:24639] [ 4] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xa0a43)[0x2b5022f23a43]
+[gra1103:24639] [ 5] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xb0558)[0x2b8ede4dc558]
+[gra1103:24641] [ 6] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xb0558)[0x2b60f4c02558]
+[gra1103:24642] [ 6] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xb0558)[0x2ae30c8df558]
+[gra1103:24640] [ 6] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xb0558)[0x2b5022f33558]
+[gra1103:24639] [ 6] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xb05c3)[0x2ae30c8df5c3]
+[gra1103:24640] [ 7] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xb05c3)[0x2b8ede4dc5c3]
+[gra1103:24641] [ 7] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xb05c3)[0x2b60f4c025c3]
+[gra1103:24642] [ 7] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xb05c3)[0x2b5022f335c3]
+[gra1103:24639] [ 7] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xb0804)[0x2b60f4c02804]
+[gra1103:24642] [ 8] /home/cgurwell/libtorch/lib/libc10.so(_ZN3c106detail14torchCheckFailEPKcS2_jRKSs+0x8c)[0x2b60f4abdf48]
+[gra1103:24642] [ 9] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xb0804)[0x2ae30c8df804]
+[gra1103:24640] [ 8] /home/cgurwell/libtorch/lib/libc10.so(_ZN3c106detail14torchCheckFailEPKcS2_jRKSs+0x8c)[0x2ae30c79af48]
+[gra1103:24640] [ 9] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xb0804)[0x2b8ede4dc804]
+[gra1103:24641] [ 8] /home/cgurwell/libtorch/lib/libc10.so(_ZN3c106detail14torchCheckFailEPKcS2_jRKSs+0x8c)[0x2b8ede397f48]
+[gra1103:24641] [ 9] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/gcc/x86_64-pc-linux-gnu/13/libstdc++.so.6(+0xb0804)[0x2b5022f33804]
+[gra1103:24639] [ 8] /home/cgurwell/libtorch/lib/libc10.so(_ZN3c106detail14torchCheckFailEPKcS2_jRKSs+0x8c)[0x2b5022deef48]
+[gra1103:24639] [ 9] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN6caffe29serialize11FileAdapter8RAIIFileC1ERKSs+0x124)[0x2b8ec7c8d634]
+[gra1103:24641] [10] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN6caffe29serialize11FileAdapter8RAIIFileC1ERKSs+0x124)[0x2b60de3b3634]
+[gra1103:24642] [10] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN6caffe29serialize11FileAdapter8RAIIFileC1ERKSs+0x124)[0x2ae2f6090634]
+[gra1103:24640] [10] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN6caffe29serialize11FileAdapter8RAIIFileC1ERKSs+0x124)[0x2b500c6e4634]
+[gra1103:24639] [10] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN6caffe29serialize11FileAdapterC1ERKSs+0x2e)[0x2b60de3b368e]
+[gra1103:24642] [11] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN6caffe29serialize11FileAdapterC1ERKSs+0x2e)[0x2b500c6e468e]
+[gra1103:24639] [11] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN6caffe29serialize11FileAdapterC1ERKSs+0x2e)[0x2ae2f609068e]
+[gra1103:24640] [11] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN6caffe29serialize11FileAdapterC1ERKSs+0x2e)[0x2b8ec7c8d68e]
+[gra1103:24641] [11] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN6caffe29serialize19PyTorchStreamReaderC1ERKSs+0x5a)[0x2b60de3b1ada]
+[gra1103:24642] [12] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN6caffe29serialize19PyTorchStreamReaderC1ERKSs+0x5a)[0x2b8ec7c8bada]
+[gra1103:24641] [12] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN6caffe29serialize19PyTorchStreamReaderC1ERKSs+0x5a)[0x2b500c6e2ada]
+[gra1103:24639] [12] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN6caffe29serialize19PyTorchStreamReaderC1ERKSs+0x5a)[0x2ae2f608eada]
+[gra1103:24640] [12] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN5torch3jit16import_ir_moduleESt10shared_ptrINS0_15CompilationUnitEERKSsN3c108optionalINS6_6DeviceEEERSt13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIS4_SsEEE+0x2a5)[0x2b60df45fb85]
+[gra1103:24642] [13] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN5torch3jit16import_ir_moduleESt10shared_ptrINS0_15CompilationUnitEERKSsN3c108optionalINS6_6DeviceEEERSt13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIS4_SsEEE+0x2a5)[0x2ae2f713cb85]
+[gra1103:24640] [13] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN5torch3jit16import_ir_moduleESt10shared_ptrINS0_15CompilationUnitEERKSsN3c108optionalINS6_6DeviceEEERSt13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIS4_SsEEE+0x2a5)[0x2b8ec8d39b85]
+[gra1103:24641] [13] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN5torch3jit16import_ir_moduleESt10shared_ptrINS0_15CompilationUnitEERKSsN3c108optionalINS6_6DeviceEEERSt13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIS4_SsEEE+0x2a5)[0x2b500d790b85]
+[gra1103:24639] [13] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN5torch3jit16import_ir_moduleESt10shared_ptrINS0_15CompilationUnitEERKSsN3c108optionalINS6_6DeviceEEE+0x7b)[0x2b500d79139b]
+[gra1103:24639] [14] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN5torch3jit16import_ir_moduleESt10shared_ptrINS0_15CompilationUnitEERKSsN3c108optionalINS6_6DeviceEEE+0x7b)[0x2b8ec8d3a39b]
+[gra1103:24641] [14] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN5torch3jit16import_ir_moduleESt10shared_ptrINS0_15CompilationUnitEERKSsN3c108optionalINS6_6DeviceEEE+0x7b)[0x2b60df46039b]
+[gra1103:24642] [14] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN5torch3jit16import_ir_moduleESt10shared_ptrINS0_15CompilationUnitEERKSsN3c108optionalINS6_6DeviceEEE+0x7b)[0x2ae2f713d39b]
+[gra1103:24640] [14] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN5torch3jit4loadERKSsN3c108optionalINS3_6DeviceEEE+0xa5)[0x2b60df460475]
+[gra1103:24642] [15] lmp[0x8b4126]
+[gra1103:24642] [16] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN5torch3jit4loadERKSsN3c108optionalINS3_6DeviceEEE+0xa5)[0x2b500d791475]
+[gra1103:24639] [15] lmp[0x8b4126]
+[gra1103:24639] [16] lmp[0x45c184]
+[gra1103:24639] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN5torch3jit4loadERKSsN3c108optionalINS3_6DeviceEEE+0xa5)[0x2b8ec8d3a475]
+[gra1103:24641] [15] lmp[0x8b4126]
+[gra1103:24641] [16] lmp[0x45c184]
+[gra1103:24641] /home/cgurwell/libtorch/lib/libtorch_cpu.so(_ZN5torch3jit4loadERKSsN3c108optionalINS3_6DeviceEEE+0xa5)[0x2ae2f713d475]
+[gra1103:24640] [15] lmp[0x8b4126]
+[gra1103:24640] [16] lmp[0x45c184]
+[gra1103:24640] [17] [17] lmp[0x462cc2]
+[gra1103:24641] [18] lmp[0x462f7e]
+lmp[0x45c184]
+[gra1103:24642] [17] lmp[0x462cc2]
+[gra1103:24642] [18] lmp[0x462f7e]
+[gra1103:24642] [19] [17] lmp[0x462cc2]
+[gra1103:24639] [18] lmp[0x462f7e]
+[gra1103:24639] [19] lmp[0x4423cd]
+[gra1103:24639] lmp[0x462cc2]
+[gra1103:24640] [18] lmp[0x462f7e]
+[gra1103:24640] [19] lmp[0x4423cd]
+[gra1103:24640] lmp[0x4423cd]
+[gra1103:24642] [20] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(+0x2394a)[0x2b60f4ec594a]
+[gra1103:24642] [21] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(__libc_start_main+0x85)[0x2b60f4ec5a05]
+[gra1103:24642] [22] lmp[0x4439a1]
+[gra1103:24642] *** End of error message ***
+[20] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(+0x2394a)[0x2ae30cba294a]
+[gra1103:24640] [21] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(__libc_start_main+0x85)[0x2ae30cba2a05]
+[gra1103:24640] [22] lmp[0x4439a1]
+[gra1103:24640] *** End of error message ***
+[20] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(+0x2394a)[0x2b50231f694a]
+[gra1103:24639] [21] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(__libc_start_main+0x85)[0x2b50231f6a05]
+[gra1103:24639] [22] lmp[0x4439a1]
+[gra1103:24639] *** End of error message ***
+[gra1103:24641] [19] lmp[0x4423cd]
+[gra1103:24641] [20] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(+0x2394a)[0x2b8ede79f94a]
+[gra1103:24641] [21] /cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib64/libc.so.6(__libc_start_main+0x85)[0x2b8ede79fa05]
+[gra1103:24641] [22] lmp[0x4439a1]
+[gra1103:24641] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 24639 on node gra1103 exited on signal 6 (Aborted).
+--------------------------------------------------------------------------
