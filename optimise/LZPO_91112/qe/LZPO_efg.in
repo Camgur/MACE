@@ -1,0 +1,9 @@
+&inputgipaw
+ job = 'efg'
+ prefix = 'LZPO'
+ tmp_dir = './out/'
+ diagonalization = 'david'
+ q_gipaw = 0.01
+ use_nmr_macroscopic_shape = .true.
+ verbosity = 'high'
+/

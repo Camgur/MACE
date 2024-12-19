@@ -1,0 +1,47 @@
+System = LiFeV2O7 (Fe, V, O, Li) 
+
+#ISPIN = 1 #does non-spin-polarized calc.
+ISPIND = 2 #makes spin-polarized calc. possible
+ISPIN = 2 #does spin-polarized calc.
+MAGMOM= 12*4.83 24*1.0 84*0.0 20*0.0  #initial mag. mom. of each atom.
+#PREC = Accurate
+#NUPDOWN = 68 
+LORBIT = 10
+PREC = Medium 
+IBRION= 2 #conj. grad. relaxation.
+NSW=91 #numberof ionic steps taken in minimization. 
+ISIF= 3 #whether stress tensor is calculated, what relaxes
+ENCUT=750 #cutoff equal to 1.5 xthe highest ENMAX in POTCAR
+#LELF =.TRUE. #electron localization function with NPAR = 1
+#LAECHG=.TRUE. #bader charge
+LWAVE=.FLASE.
+#ISMEAR = -5 #BZ integration method (Bloechl corrections).
+ISMEAR = 1 #BZ integration method (for relaxation runs).
+SIGMA = 0.1 #smearing width (keep T*S < 1meV/atom). 
+#POTIM=0.1 ! Effects FT grid 
+#EMIN=-8 #DOS window
+#EMAX=8 #DOS window
+#NEDOS=301 #number of points in the interval
+#
+#Fermi contact shifts (next two lines)
+#LHYPERFINE = .TRUE.
+#NGYROMAG = 1.9898 11.214 17.254 -5.775 40.05 # MHz
+#
+#Chemical shifts (next 8 lines)to be done from a converged calculations using the CHGCAR
+#EDIFF = 1E-8 # or lower EDIFF needed
+#ISMEAR =0
+LREAL = Auto
+#LCHIMAG=.TRUE.
+#DQ=0.001 #typical range [0.001 to 0.003]
+#ICHIBARE = 1 #typical range [1 to 3]
+#LNMR_SYM_RED=.TRUE.
+#NSPLINE=.TRUE. #only needed of LREAL is not set LREAL=.FALSE.
+#
+#EFG(next 2 lines)
+#LEFG = .TRUE.
+#QUAD_EFG # millibarns for each atomic species
+NCORE = 4
+LDAU = True 
+LDAUL = 2 2 0 0
+LDAUTYPE = 2
+LDAUU = 5.3 3.25 0 0 # Values from materials project

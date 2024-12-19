@@ -1,0 +1,54 @@
+
+#======================================================================
+# CRYSTAL DATA
+#----------------------------------------------------------------------
+data_VESTA_phase_1
+
+_chemical_name_common                  'XCrySDen XSF file'
+_cell_length_a                         7.003997
+_cell_length_b                         6.503000
+_cell_length_c                         12.995998
+_cell_angle_alpha                      90.000000
+_cell_angle_beta                       93.300011
+_cell_angle_gamma                      90.000000
+_cell_volume                           590.947076
+_space_group_name_H-M_alt              'P 1'
+_space_group_IT_number                 1
+
+loop_
+_space_group_symop_operation_xyz
+   'x, y, z'
+
+loop_
+   _atom_site_label
+   _atom_site_occupancy
+   _atom_site_fract_x
+   _atom_site_fract_y
+   _atom_site_fract_z
+   _atom_site_adp_type
+   _atom_site_U_iso_or_equiv
+   _atom_site_type_symbol
+   Li1        1.0     0.155843     0.516307     0.866122    Uiso  ? Li
+   Li2        1.0     0.844157     0.016307     0.633878    Uiso  ? Li
+   Li3        1.0     0.844157     0.483693     0.133878    Uiso  ? Li
+   Li4        1.0     0.155843     0.983693     0.366122    Uiso  ? Li
+   Al1        1.0     0.705853     0.177567     0.399367    Uiso  ? Al
+   Al2        1.0     0.294147     0.677567     0.100633    Uiso  ? Al
+   Al3        1.0     0.294147     0.822433     0.600633    Uiso  ? Al
+   Al4        1.0     0.705853     0.322433     0.899367    Uiso  ? Al
+   Cl1        1.0     0.693852     0.317844     0.548689    Uiso  ? Cl
+   Cl2        1.0     0.306148     0.817844     0.951311    Uiso  ? Cl
+   Cl3        1.0     0.306148     0.682156     0.451311    Uiso  ? Cl
+   Cl4        1.0     0.693852     0.182156     0.048689    Uiso  ? Cl
+   Cl5        1.0     0.811699     0.868223     0.429302    Uiso  ? Cl
+   Cl6        1.0     0.188301     0.368223     0.070698    Uiso  ? Cl
+   Cl7        1.0     0.188301     0.131777     0.570698    Uiso  ? Cl
+   Cl8        1.0     0.811699     0.631777     0.929302    Uiso  ? Cl
+   Cl9        1.0     0.928114     0.319682     0.312765    Uiso  ? Cl
+   Cl10       1.0     0.071886     0.819682     0.187235    Uiso  ? Cl
+   Cl11       1.0     0.071886     0.680318     0.687235    Uiso  ? Cl
+   Cl12       1.0     0.928114     0.180318     0.812765    Uiso  ? Cl
+   Cl13       1.0     0.436688     0.186120     0.312071    Uiso  ? Cl
+   Cl14       1.0     0.563312     0.686120     0.187929    Uiso  ? Cl
+   Cl15       1.0     0.563312     0.813880     0.687929    Uiso  ? Cl
+   Cl16       1.0     0.436688     0.313880     0.812071    Uiso  ? Cl

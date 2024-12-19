@@ -1,0 +1,35 @@
+# get the number of available processors
+set np [exec nproc]
+while { [catch {exec mpirun -n $np echo yes}] } {
+	set np [expr { $np > 2 ? $np / 2 : 1 }]
+}
+
+prefix "mpirun -np $np"
+
+
+
+
+# load the pw.x input from file
+load_fromPWI pw_LAC_scf.in
+
+# open a file for writing resulting total energies
+set fid [open etot_vs_ecutrho.dat w]
+
+# loop over different "ecut" values
+foreach ecut { 300 400 500 600 700 } {
+
+    # name of I/O files: $name.in & $name.out
+    set name LAC_scf_ecutrho-$ecut
+
+    # set the pw.x "ecutrho" variable
+    SYSTEM "ecutrho = $ecut"
+
+    # run the pw.x calculation
+    runPW $name.in
+
+    # extract the "total energy" and write it to file
+    set Etot [::pwtk::pwo::totene $name.out]
+    puts $fid "$ecut $Etot"
+}
+
+close $fid

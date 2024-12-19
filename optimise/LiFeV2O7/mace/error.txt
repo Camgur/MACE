@@ -1,0 +1,24 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) CCconfig        6)  ucx/1.14.1         11) flexiblas/3.3.1
+  2) gentoo/2023     7)  libfabric/1.18.0   12) imkl/2023.2.0
+  3) gcccore/.12.3   8)  pmix/4.2.4         13) StdEnv/2023
+  4) gcc/12.3        9)  ucc/1.2.0
+  5) hwloc/2.9.1     10) openmpi/4.1.5
+/scratch/cgurwell/optimise/LiFeV2O7/mace/opt_mace.py:31: DeprecationWarning: Use FrechetCellFilter for better convergence w.r.t. cell variables.
+  opt = BFGS(ExpCellFilter(atoms), trajectory=base + 'opt_' + filename.replace('.cif', '.traj'))
+/home/cgurwell/MACE/lib/python3.11/site-packages/ase/constraints.py:2330: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.19999999999999996
+  warn('FixSymmetry adjust_cell may be ill behaved with large '
+/home/cgurwell/MACE/lib/python3.11/site-packages/ase/constraints.py:2330: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.1583765198034882
+  warn('FixSymmetry adjust_cell may be ill behaved with large '
+/home/cgurwell/MACE/lib/python3.11/site-packages/ase/constraints.py:2330: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.18827708830617018
+  warn('FixSymmetry adjust_cell may be ill behaved with large '
+/home/cgurwell/MACE/lib/python3.11/site-packages/ase/constraints.py:2330: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.21465158210334523
+  warn('FixSymmetry adjust_cell may be ill behaved with large '
+/home/cgurwell/MACE/lib/python3.11/site-packages/ase/constraints.py:2330: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.17571092913452557
+  warn('FixSymmetry adjust_cell may be ill behaved with large '
+/home/cgurwell/MACE/lib/python3.11/site-packages/ase/constraints.py:2330: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.20984972971060536
+  warn('FixSymmetry adjust_cell may be ill behaved with large '
+/home/cgurwell/MACE/lib/python3.11/site-packages/ase/constraints.py:2330: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.17523665371507208
+  warn('FixSymmetry adjust_cell may be ill behaved with large '

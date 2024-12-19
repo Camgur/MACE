@@ -1,0 +1,28 @@
+      ========================================================================
+      *** PWTK-3.1    (PWscf ToolKit: a Tcl scripting environment)
+      ========================================================================
+      (for more info about PWTK, see http://pwtk.ijs.si/)
+
+      Running on host: gra740.graham.sharcnet
+      PWTK: /home/cgurwell/pwtk-3.1
+      Date: Sun Nov 10 18:56:22 EST 2024
+      PID:  31935
+
+      Executable: /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/MPI/gcc12/openmpi4/quantumespresso/7.3.1/bin/pw.x
+      Running: mpirun -np 4 pw.x -in LAC_scf_ecutwfc-30.in > LAC_scf_ecutwfc-30.out
+
+      Executable: /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/MPI/gcc12/openmpi4/quantumespresso/7.3.1/bin/pw.x
+      Running: mpirun -np 4 pw.x -in LAC_scf_ecutwfc-40.in > LAC_scf_ecutwfc-40.out
+
+      Executable: /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/MPI/gcc12/openmpi4/quantumespresso/7.3.1/bin/pw.x
+      Running: mpirun -np 4 pw.x -in LAC_scf_ecutwfc-50.in > LAC_scf_ecutwfc-50.out
+
+      Executable: /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/MPI/gcc12/openmpi4/quantumespresso/7.3.1/bin/pw.x
+      Running: mpirun -np 4 pw.x -in LAC_scf_ecutwfc-60.in > LAC_scf_ecutwfc-60.out
+
+      Executable: /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/MPI/gcc12/openmpi4/quantumespresso/7.3.1/bin/pw.x
+      Running: mpirun -np 4 pw.x -in LAC_scf_ecutwfc-70.in > LAC_scf_ecutwfc-70.out
+
+
+      Job done.
+      --

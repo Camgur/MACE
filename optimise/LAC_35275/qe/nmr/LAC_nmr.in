@@ -1,0 +1,9 @@
+&inputgipaw
+ job = 'nmr'
+ prefix = 'LAC'
+ tmp_dir = './out/'
+ diagonalization = 'cg'
+ q_gipaw = 0.01
+ use_nmr_macroscopic_shape = .true.
+ verbosity = 'high'
+/

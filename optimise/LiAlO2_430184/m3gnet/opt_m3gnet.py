@@ -28,6 +28,6 @@ atoms.set_constraint(FixSymmetry(atoms))
 
 # Run Optimise (No Cell Opt)
 opt = BFGS(atoms, trajectory=base + 'opt_' + filename.replace('.cif', '.traj'))
-opt.run(fmax=1e-2, steps=1)
+opt.run(fmax=1e-2, steps=400)
 
 atoms.write(base + 'opt_' + filename)

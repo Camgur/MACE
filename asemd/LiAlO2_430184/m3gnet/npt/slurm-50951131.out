@@ -1,0 +1,52 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) CCconfig        6)  ucx/1.14.1         11) flexiblas/3.3.1
+  2) gentoo/2023     7)  libfabric/1.18.0   12) imkl/2023.2.0
+  3) gcccore/.12.3   8)  pmix/4.2.4         13) StdEnv/2023
+  4) gcc/12.3        9)  ucc/1.2.0
+  5) hwloc/2.9.1     10) openmpi/4.1.5
+Lmod has detected the following error: The following module(s) are unknown:
+"cudann"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cudann"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+2024-12-17 18:35:04.741451: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-12-17 18:35:10.338133: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-12-17 18:35:10.339086: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-12-17 18:35:10.502414: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-17 18:35:10.786244: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:From /home/cgurwell/chgnet/lib/python3.10/site-packages/tensorflow/python/util/deprecation.py:588: calling function (from tensorflow.python.eager.polymorphic_function.polymorphic_function) with experimental_relax_shapes is deprecated and will be removed in a future version.
+Instructions for updating:
+experimental_relax_shapes is deprecated, use reduce_retracing instead
+2024-12-17 18:46:14.562313: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 31134 MB memory:  -> device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:3b:00.0, compute capability: 7.0
+WARNING:tensorflow:You are casting an input of type complex64 to an incompatible dtype float32.  This will discard the imaginary part and may not be what you intended.
+WARNING:tensorflow:You are casting an input of type complex64 to an incompatible dtype float32.  This will discard the imaginary part and may not be what you intended.
+WARNING:tensorflow:You are casting an input of type complex64 to an incompatible dtype float32.  This will discard the imaginary part and may not be what you intended.
+2024-12-17 18:46:43.116028: I tensorflow/core/util/cuda_solvers.cc:179] Creating GpuSolver handles for stream 0x555e4551d9d0
+2024-12-17 18:46:47.580063: I external/local_tsl/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+Traceback (most recent call last):
+  File "/scratch/cgurwell/asemd/LiAlO2_430184/m3gnet/m3gnet_md.py", line 32, in <module>
+    md.run(50000)  # run an MD simulation
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/m3gnet/models/_dynamics.py", line 370, in run
+    self.dyn.run(steps)
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/md/md.py", line 178, in run
+    return Dynamics.run(self, steps=steps)
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/optimize/optimize.py", line 275, in run
+    for converged in Dynamics.irun(self, steps=steps):
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/optimize/optimize.py", line 246, in irun
+    self.step()
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/md/nptberendsen.py", line 161, in step
+    self.scale_positions_and_cell()
+  File "/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/md/nptberendsen.py", line 254, in scale_positions_and_cell
+    taupscl = self.dt * self.compressibility / self.taup / 3.0
+TypeError: unsupported operand type(s) for *: 'float' and 'NoneType'
+Done

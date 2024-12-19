@@ -1,0 +1,5 @@
+USE THE --dependency=afterok:JOBID slurm.slurm COMMAND FOR NMR
+
+USECASE:
+
+sbatch --dependency=afterok:2567787 LZPO_nmr.slurm

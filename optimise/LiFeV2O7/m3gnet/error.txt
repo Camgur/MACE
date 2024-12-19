@@ -1,0 +1,34 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) CCconfig        6)  ucx/1.14.1         11) flexiblas/3.3.1
+  2) gentoo/2023     7)  libfabric/1.18.0   12) imkl/2023.2.0
+  3) gcccore/.12.3   8)  pmix/4.2.4         13) StdEnv/2023
+  4) gcc/12.3        9)  ucc/1.2.0
+  5) hwloc/2.9.1     10) openmpi/4.1.5
+2024-12-18 12:40:04.195331: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-12-18 12:40:04.197069: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-12-18 12:40:04.368861: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-18 12:40:04.664196: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:From /home/cgurwell/chgnet/lib/python3.10/site-packages/tensorflow/python/util/deprecation.py:588: calling function (from tensorflow.python.eager.polymorphic_function.polymorphic_function) with experimental_relax_shapes is deprecated and will be removed in a future version.
+Instructions for updating:
+experimental_relax_shapes is deprecated, use reduce_retracing instead
+2024-12-18 12:46:23.003833: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 11430 MB memory:  -> device: 0, name: Tesla P100-PCIE-12GB, pci bus id: 0000:82:00.0, compute capability: 6.0
+/scratch/cgurwell/optimise/LiFeV2O7/m3gnet/opt_m3gnet.py:31: DeprecationWarning: Use FrechetCellFilter for better convergence w.r.t. cell variables.
+  opt = BFGS(ExpCellFilter(atoms), trajectory=base + 'opt_' + filename.replace('.cif', '.traj'))
+WARNING:tensorflow:You are casting an input of type complex64 to an incompatible dtype float32.  This will discard the imaginary part and may not be what you intended.
+WARNING:tensorflow:You are casting an input of type complex64 to an incompatible dtype float32.  This will discard the imaginary part and may not be what you intended.
+WARNING:tensorflow:You are casting an input of type complex64 to an incompatible dtype float32.  This will discard the imaginary part and may not be what you intended.
+2024-12-18 12:46:45.188353: I tensorflow/core/util/cuda_solvers.cc:179] Creating GpuSolver handles for stream 0x55c67ff91270
+2024-12-18 12:46:48.456163: I external/local_tsl/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/constraints.py:2330: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.19999999999999996
+  warn('FixSymmetry adjust_cell may be ill behaved with large '
+WARNING:tensorflow:You are casting an input of type complex64 to an incompatible dtype float32.  This will discard the imaginary part and may not be what you intended.
+WARNING:tensorflow:You are casting an input of type complex64 to an incompatible dtype float32.  This will discard the imaginary part and may not be what you intended.
+/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/constraints.py:2330: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.1602752835745458
+  warn('FixSymmetry adjust_cell may be ill behaved with large '
+/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/constraints.py:2330: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.1555786604541275
+  warn('FixSymmetry adjust_cell may be ill behaved with large '
+/home/cgurwell/chgnet/lib/python3.10/site-packages/ase/constraints.py:2330: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.22071850288054562
+  warn('FixSymmetry adjust_cell may be ill behaved with large '
