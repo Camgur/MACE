@@ -1,7 +1,6 @@
 # ML Potentials Project
-### Chem 4PB3 - Winter 2024
-##### Cameron A. Gurwell, Taiana Emmanuel Pereira, Carlos Alberto Martins Junior, Gillian R. Goward, and Rodrigo Alejandro Vargas-Hernandez†
-> † Principal Investigator
+##### Cameron A. Gurwell<sup> 1</sup>, Taiana Emmanuel Pereira<sup> 1</sup>, Carlos Alberto Martins Junior<sup> 2</sup>, Gillian R. Goward<sup> 1</sup>, and Rodrigo Alejandro Vargas-Hernández<sup> 1,†</sup>
+> <sup>1</sup> McMaster University, <sup>2</sup> Federal University of Paraná, † Principal Investigator
 <hr></hr>
 
 <p>This repository is intended to hold the data collected for the <strong>ML-Potentials</strong> project</p>
