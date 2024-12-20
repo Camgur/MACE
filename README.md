@@ -1,14 +1,12 @@
-# Sodium Conductor Project
+# ML Potentials Project
 ### Chem 4PB3 - Winter 2024
-##### Cameron Gurwell
+##### Cameron Gurwell, Taiana Emmanuel Pereia, Carlos Alberto Martins Junior, Gillian R. Goward, and Rodrigo Alejandro Vargas-Hernandez†
+> † Principal Investigator
 <hr></hr>
 
-<p>This repository is intended to hold the data collected for the final project and presentation in
-the class <strong>Chem 4PB3</strong> (Computational Quantum)</p>
+<p>This repository is intended to hold the data collected for the <strong>ML-Potentials</strong> project</p>
 
-<p>The structure of the repo is very similar to the layout of the codespace I used on my home
-PC to run the ML simulations. Most calculations and work was completed using an AMD Ryzen 3700x
-CPU and an AMD Radeon 6800 GPU. For most standard applications of structure optimisation
+<p>For most standard applications of structure optimisation
 (e.g. <strong>CASTEP, VASP, Quantum Espresso</strong>), a high powered supercomputer is necessary
 to crunch the large amounts of data and numbers. This project was aimed at investigating the recent 
 developments into low power structure optimisation using ML.</p>
@@ -23,6 +21,16 @@ using the <strong>ASE</strong> framework and uses complex ANSATZ picking to cons
 and a library called <strong>BVLain</strong> to construct sodium ion pathways through a novel conductor
 intially developed by the <strong>Mozharivskyj Group</strong> and investigated by the 
 <strong>Goward Group</strong>.</p>
+
+<p>The form of the project has evolved over time to encompass a general benchmark of four ML potentials 
+compared to <strong>Quantum Espresso</strong> software and pseudopotentials from Dr. Davide Ceresoli.</p>
+
+<p>ML Potentials:</p>
+
+> CHGNet : Dr. Gerband Ceder Affiliation <br>
+> M3GNet : Dr. Shyue Ping Ong Affiliation <br>
+> MACE : Original Project Inspiration <br>
+> ORB : Orbital Materials, Commercial <br>
 
 <hr></hr>
 
