@@ -1,6 +1,6 @@
 # ML Potentials Project
 ### Chem 4PB3 - Winter 2024
-##### Cameron Gurwell, Taiana Emmanuel Pereia, Carlos Alberto Martins Junior, Gillian R. Goward, and Rodrigo Alejandro Vargas-Hernandez†
+##### Cameron A. Gurwell, Taiana Emmanuel Pereira, Carlos Alberto Martins Junior, Gillian R. Goward, and Rodrigo Alejandro Vargas-Hernandez†
 > † Principal Investigator
 <hr></hr>
 
