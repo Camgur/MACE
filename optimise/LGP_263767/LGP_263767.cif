@@ -1,105 +1,66 @@
 
-#(C) 2024 by FIZ Karlsruhe - Leibniz Institute for Information Infrastructure.  All rights reserved.
-data_263767-ICSD
-_database_code_ICSD 263767
-_audit_creation_date 2019-02-01
-_chemical_name_common 'Lithium digermanium triphosphate'
-_chemical_formula_structural 'Li Ge2 (P O4)3'
-_chemical_formula_sum 'Ge2 Li1 O12 P3'
-_chemical_name_structure_type Nasicon(high)#NaZr2(PO4)3
-_exptl_crystal_density_diffrn 3.59
-_citation_title
+#======================================================================
+# CRYSTAL DATA
+#----------------------------------------------------------------------
+data_VESTA_phase_1
 
-;
-Correlating transport and structural properties in Li1+xAlxGe2-x(PO4)3 (LAGP)
-prepared from aqueous solution
-;
+_chemical_name_common                  'XCrySDen XSF file'
+_cell_length_a                         8.270590
+_cell_length_b                         8.270590
+_cell_length_c                         8.326880
+_cell_angle_alpha                      60.223370
+_cell_angle_beta                       60.223370
+_cell_angle_gamma                      60.000000
+_cell_volume                           404.108844
+_space_group_name_H-M_alt              'P 1'
+_space_group_IT_number                 1
+
 loop_
-_citation_id
-_citation_journal_full
-_citation_year
-_citation_journal_volume
-_citation_page_first
-_citation_page_last
-_citation_journal_id_ASTM
-primary 'ACS Applied Materials & Interfaces' 2018 10 10935 10944 AAMICK
-loop_
-_citation_author_citation_id
-_citation_author_name
-primary 'Weiss, Manuel'
-primary 'Weber, Dominik A.'
-primary 'Senyshyn, Anatoliy'
-primary 'Janek, Juergen'
-primary 'Zeier, Wolfgang G.'
-_cell_length_a 8.27059(4)
-_cell_length_b 8.27059(4)
-_cell_length_c 20.4652(2)
-_cell_angle_alpha 90
-_cell_angle_beta 90
-_cell_angle_gamma 120
-_cell_volume 1212.32
-_cell_formula_units_Z 6
-_space_group_name_H-M_alt 'R -3 c H'
-_space_group_IT_number 167
-loop_
-_space_group_symop_id
 _space_group_symop_operation_xyz
-1 'x-y, -y, -z+1/2'
-2 '-x, -x+y, -z+1/2'
-3 'y, x, -z+1/2'
-4 'x-y, x, -z'
-5 'y, -x+y, -z'
-6 '-x, -y, -z'
-7 '-x+y, y, z+1/2'
-8 'x, x-y, z+1/2'
-9 '-y, -x, z+1/2'
-10 '-x+y, -x, z'
-11 '-y, x-y, z'
-12 'x, y, z'
-13 'x-y+2/3, -y+1/3, -z+5/6'
-14 '-x+2/3, -x+y+1/3, -z+5/6'
-15 'y+2/3, x+1/3, -z+5/6'
-16 'x-y+2/3, x+1/3, -z+1/3'
-17 'y+2/3, -x+y+1/3, -z+1/3'
-18 '-x+2/3, -y+1/3, -z+1/3'
-19 '-x+y+2/3, y+1/3, z+5/6'
-20 'x+2/3, x-y+1/3, z+5/6'
-21 '-y+2/3, -x+1/3, z+5/6'
-22 '-x+y+2/3, -x+1/3, z+1/3'
-23 '-y+2/3, x-y+1/3, z+1/3'
-24 'x+2/3, y+1/3, z+1/3'
-25 'x-y+1/3, -y+2/3, -z+1/6'
-26 '-x+1/3, -x+y+2/3, -z+1/6'
-27 'y+1/3, x+2/3, -z+1/6'
-28 'x-y+1/3, x+2/3, -z+2/3'
-29 'y+1/3, -x+y+2/3, -z+2/3'
-30 '-x+1/3, -y+2/3, -z+2/3'
-31 '-x+y+1/3, y+2/3, z+1/6'
-32 'x+1/3, x-y+2/3, z+1/6'
-33 '-y+1/3, -x+2/3, z+1/6'
-34 '-x+y+1/3, -x+2/3, z+2/3'
-35 '-y+1/3, x-y+2/3, z+2/3'
-36 'x+1/3, y+2/3, z+2/3'
+   'x, y, z'
+
 loop_
-_atom_type_symbol
-_atom_type_oxidation_number
-P5+ 5
-O2- -2
-Li1+ 1
-Ge4+ 4
-loop_
-_atom_site_label
-_atom_site_type_symbol
-_atom_site_symmetry_multiplicity
-_atom_site_Wyckoff_symbol
-_atom_site_fract_x
-_atom_site_fract_y
-_atom_site_fract_z
-_atom_site_B_iso_or_equiv
-_atom_site_occupancy
-P1 P5+ 18 e 0.28747(14) 0. 0.25 0.307932 1.
-O1 O2- 36 f 0.17942(12) 0.98407(12) 0.18838(4) 0.876421 1.
-O2 O2- 36 f 0.18525(10) 0.15923(10) 0.08280(4) 0.607968 1.
-Li1 Li1+ 6 b 0. 0. 0. 2.43 1.
-Ge1 Ge4+ 12 c 0. 0. 0.14100(4) 0.210201 1.
-#End of TTdata_263767-ICSD
+   _atom_site_label
+   _atom_site_occupancy
+   _atom_site_fract_x
+   _atom_site_fract_y
+   _atom_site_fract_z
+   _atom_site_adp_type
+   _atom_site_U_iso_or_equiv
+   _atom_site_type_symbol
+   Ge1        1.0     0.359000     0.359000     0.923000    Uiso  ? Ge
+   Ge2        1.0     0.859000     0.859000     0.423000    Uiso  ? Ge
+   Ge3        1.0     0.641000     0.641000     0.077000    Uiso  ? Ge
+   Ge4        1.0     0.141000     0.141000     0.577000    Uiso  ? Ge
+   Li1        1.0     0.500000     0.500000     0.500000    Uiso  ? Li
+   Li2        1.0     0.000000     0.000000     0.000000    Uiso  ? Li
+   O1         1.0     0.295690     0.132200     0.065140    Uiso  ? O
+   O2         1.0     0.506970     0.295690     0.065140    Uiso  ? O
+   O3         1.0     0.132200     0.506970     0.065140    Uiso  ? O
+   O4         1.0     0.632200     0.795690     0.565140    Uiso  ? O
+   O5         1.0     0.006970     0.632200     0.565140    Uiso  ? O
+   O6         1.0     0.795690     0.006970     0.565140    Uiso  ? O
+   O7         1.0     0.704310     0.867800     0.934860    Uiso  ? O
+   O8         1.0     0.493030     0.704310     0.934860    Uiso  ? O
+   O9         1.0     0.867800     0.493030     0.934860    Uiso  ? O
+   O10        1.0     0.367800     0.204310     0.434860    Uiso  ? O
+   O11        1.0     0.993030     0.367800     0.434860    Uiso  ? O
+   O12        1.0     0.204310     0.993030     0.434860    Uiso  ? O
+   O13        1.0     0.576430     0.231950     0.748400    Uiso  ? O
+   O14        1.0     0.443220     0.576430     0.748400    Uiso  ? O
+   O15        1.0     0.231950     0.443220     0.748400    Uiso  ? O
+   O16        1.0     0.731950     0.076430     0.248400    Uiso  ? O
+   O17        1.0     0.943220     0.731950     0.248400    Uiso  ? O
+   O18        1.0     0.076430     0.943220     0.248400    Uiso  ? O
+   O19        1.0     0.423570     0.768050     0.251600    Uiso  ? O
+   O20        1.0     0.556780     0.423570     0.251600    Uiso  ? O
+   O21        1.0     0.768050     0.556780     0.251600    Uiso  ? O
+   O22        1.0     0.268050     0.923570     0.751600    Uiso  ? O
+   O23        1.0     0.056780     0.268050     0.751600    Uiso  ? O
+   O24        1.0     0.923570     0.056780     0.751600    Uiso  ? O
+   P1         1.0     0.250000     0.962530     0.250000    Uiso  ? P
+   P2         1.0     0.537470     0.250000     0.250000    Uiso  ? P
+   P3         1.0     0.962530     0.537470     0.250000    Uiso  ? P
+   P4         1.0     0.462530     0.750000     0.750000    Uiso  ? P
+   P5         1.0     0.037470     0.462530     0.750000    Uiso  ? P
+   P6         1.0     0.750000     0.037470     0.750000    Uiso  ? P

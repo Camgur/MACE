@@ -1,0 +1,147 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) CCconfig        6)  ucx/1.14.1         11) flexiblas/3.3.1
+  2) gentoo/2023     7)  libfabric/1.18.0   12) imkl/2023.2.0
+  3) gcccore/.12.3   8)  pmix/4.2.4         13) StdEnv/2023
+  4) gcc/12.3        9)  ucc/1.2.0
+  5) hwloc/2.9.1     10) openmpi/4.1.5
+Lmod has detected the following error: The following module(s) are unknown:
+"cudann"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cudann"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+2025-02-03 11:03:55.245671: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-02-03 11:03:59.436844: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-02-03 11:03:59.438000: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-02-03 11:03:59.579474: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-02-03 11:03:59.881669: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:From /home/cgurwell/env/m3gnet/lib/python3.10/site-packages/tensorflow/python/util/deprecation.py:588: calling function (from tensorflow.python.eager.polymorphic_function.polymorphic_function) with experimental_relax_shapes is deprecated and will be removed in a future version.
+Instructions for updating:
+experimental_relax_shapes is deprecated, use reduce_retracing instead
+2025-02-03 11:05:47.759947: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 31134 MB memory:  -> device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:86:00.0, compute capability: 7.0
+WARNING:tensorflow:You are casting an input of type complex64 to an incompatible dtype float32.  This will discard the imaginary part and may not be what you intended.
+WARNING:tensorflow:You are casting an input of type complex64 to an incompatible dtype float32.  This will discard the imaginary part and may not be what you intended.
+WARNING:tensorflow:You are casting an input of type complex64 to an incompatible dtype float32.  This will discard the imaginary part and may not be what you intended.
+2025-02-03 11:06:05.140386: I tensorflow/core/util/cuda_solvers.cc:179] Creating GpuSolver handles for stream 0x5651db982d60
+2025-02-03 11:06:08.840083: I external/local_tsl/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+Isolated atoms found in the structure
+WARNING:tensorflow:You are casting an input of type complex64 to an incompatible dtype float32.  This will discard the imaginary part and may not be what you intended.
+Traceback (most recent call last):
+  File "/scratch/cgurwell/asemd/LSnPS/m3gnet/m3gnet_md.py", line 39, in <module>
+    init.run(10000)  # 10 ps
+  File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/ase/md/md.py", line 169, in run
+    return Dynamics.run(self, steps=steps)
+  File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/ase/optimize/optimize.py", line 283, in run
+    for converged in Dynamics.irun(self, steps=steps):
+  File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/ase/optimize/optimize.py", line 254, in irun
+    self.step()
+  File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/ase/md/nvtberendsen.py", line 152, in step
+    forces = self.atoms.get_forces(md=True)
+  File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/ase/atoms.py", line 827, in get_forces
+    forces = self._calc.get_forces(self)
+  File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/ase/calculators/abc.py", line 30, in get_forces
+    return self.get_property('forces', atoms)
+  File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/ase/calculators/calculator.py", line 538, in get_property
+    self.calculate(atoms, [name], system_changes)
+  File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/m3gnet/models/_dynamics.py", line 86, in calculate
+    results = self.potential.get_efs_tensor(graph_list, include_stresses=self.compute_stress)
+  File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/tmp/__autograph_generated_filee0r8ovsn.py", line 45, in tf__get_efs_tensor
+    energies = ag__.converted_call(ag__.ld(self).get_energies, (ag__.ld(graph),), None, fscope)
+  File "/tmp/__autograph_generated_file035sq4d3.py", line 18, in tf__get_energies
+    retval_ = ag__.converted_call(ag__.ld(self).model, (ag__.ld(graph),), None, fscope)
+  File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/tmp/__autograph_generated_file_t4esxhy.py", line 19, in tf__call
+    three_basis = ag__.converted_call(ag__.ld(self).basis_expansion, (ag__.ld(graph),), None, fscope)
+  File "/tmp/__autograph_generated_file19rlnhol.py", line 21, in tf__call
+    retval_ = ag__.converted_call(ag__.ld(combine_sbf_shf), (ag__.ld(sbf), ag__.ld(shf)), dict(max_n=ag__.ld(self).max_n, max_l=ag__.ld(self).max_l, use_phi=ag__.ld(self).use_phi), fscope)
+  File "/tmp/__autograph_generated_file5bpkx8w8.py", line 99, in tf__combine_sbf_shf
+    ag__.if_stmt(ag__.converted_call(ag__.ld(tf).shape, (ag__.ld(sbf),), None, fscope)[0] == 0, if_body_2, else_body_2, get_state_2, set_state_2, ('do_return', 'retval_'), 2)
+  File "/tmp/__autograph_generated_file5bpkx8w8.py", line 68, in else_body_2
+    expanded_sbf = ag__.converted_call(ag__.ld(tf).repeat, (ag__.ld(sbf),), dict(repeats=ag__.ld(repeats_sbf), axis=1), fscope)
+ValueError: in user code:
+
+    File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/m3gnet/models/_base.py", line 186, in get_efs_tensor  *
+        energies = self.get_energies(graph)
+    File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/m3gnet/models/_base.py", line 261, in get_energies  *
+        return self.model(graph)
+    File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler  **
+        raise e.with_traceback(filtered_tb) from None
+    File "/tmp/__autograph_generated_file_t4esxhy.py", line 19, in tf__call
+        three_basis = ag__.converted_call(ag__.ld(self).basis_expansion, (ag__.ld(graph),), None, fscope)
+    File "/tmp/__autograph_generated_file19rlnhol.py", line 21, in tf__call
+        retval_ = ag__.converted_call(ag__.ld(combine_sbf_shf), (ag__.ld(sbf), ag__.ld(shf)), dict(max_n=ag__.ld(self).max_n, max_l=ag__.ld(self).max_l, use_phi=ag__.ld(self).use_phi), fscope)
+    File "/tmp/__autograph_generated_file5bpkx8w8.py", line 99, in tf__combine_sbf_shf
+        ag__.if_stmt(ag__.converted_call(ag__.ld(tf).shape, (ag__.ld(sbf),), None, fscope)[0] == 0, if_body_2, else_body_2, get_state_2, set_state_2, ('do_return', 'retval_'), 2)
+    File "/tmp/__autograph_generated_file5bpkx8w8.py", line 68, in else_body_2
+        expanded_sbf = ag__.converted_call(ag__.ld(tf).repeat, (ag__.ld(sbf),), dict(repeats=ag__.ld(repeats_sbf), axis=1), fscope)
+
+    ValueError: Exception encountered when calling layer 'm3g_net' (type M3GNet).
+    
+    in user code:
+    
+        File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/m3gnet/models/_m3gnet.py", line 253, in call  *
+            three_basis = self.basis_expansion(graph)
+        File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler  **
+            raise e.with_traceback(filtered_tb) from None
+        File "/tmp/__autograph_generated_file19rlnhol.py", line 21, in tf__call
+            retval_ = ag__.converted_call(ag__.ld(combine_sbf_shf), (ag__.ld(sbf), ag__.ld(shf)), dict(max_n=ag__.ld(self).max_n, max_l=ag__.ld(self).max_l, use_phi=ag__.ld(self).use_phi), fscope)
+        File "/tmp/__autograph_generated_file5bpkx8w8.py", line 99, in tf__combine_sbf_shf
+            ag__.if_stmt(ag__.converted_call(ag__.ld(tf).shape, (ag__.ld(sbf),), None, fscope)[0] == 0, if_body_2, else_body_2, get_state_2, set_state_2, ('do_return', 'retval_'), 2)
+        File "/tmp/__autograph_generated_file5bpkx8w8.py", line 68, in else_body_2
+            expanded_sbf = ag__.converted_call(ag__.ld(tf).repeat, (ag__.ld(sbf),), dict(repeats=ag__.ld(repeats_sbf), axis=1), fscope)
+    
+        ValueError: Exception encountered when calling layer 'spherical_bessel_with_harmonics' (type SphericalBesselWithHarmonics).
+        
+        in user code:
+        
+            File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/m3gnet/layers/_three_body.py", line 57, in call  *
+                return combine_sbf_shf(sbf, shf, max_n=self.max_n, max_l=self.max_l, use_phi=self.use_phi)
+            File "/home/cgurwell/env/m3gnet/lib/python3.10/site-packages/m3gnet/utils/_math.py", line 300, in combine_sbf_shf  *
+                expanded_sbf = tf.repeat(sbf, repeats=repeats_sbf, axis=1)
+        
+            ValueError: Dimension 1 in both shapes must be equal, but are 9 and 0. Shapes are [0,9] and [0,0].
+        
+        
+        Call arguments received by layer 'spherical_bessel_with_harmonics' (type SphericalBesselWithHarmonics):
+          • graph=['tf.Tensor(shape=(408, 1), dtype=int32)', 'tf.Tensor(shape=(None, 1), dtype=float32)', 'None', 'tf.Tensor(shape=(408, 3), dtype=float32)', 'tf.Tensor(shape=(0, 2), dtype=int32)', 'tf.Tensor(shape=(0, 3), dtype=int32)', 'tf.Tensor(shape=(1,), dtype=int32)', 'tf.Tensor(shape=(1,), dtype=int32)', 'tf.Tensor(shape=(None,), dtype=float32)', 'tf.Tensor(shape=(1, 3, 3), dtype=float32)', 'tf.Tensor(shape=(0, 2), dtype=int32)', 'tf.Tensor(shape=(0,), dtype=float32)', 'tf.Tensor(shape=(0,), dtype=float32)', 'tf.Tensor(shape=(0,), dtype=float32)', 'tf.Tensor(shape=(0,), dtype=int32)', 'tf.Tensor(shape=(408,), dtype=int32)', 'tf.Tensor(shape=(1,), dtype=int32)']
+          • kwargs={'training': 'None'}
+    
+    
+    Call arguments received by layer 'm3g_net' (type M3GNet):
+      • graph=['tf.Tensor(shape=(408, 1), dtype=int32)', 'tf.Tensor(shape=(0, 1), dtype=float32)', 'None', 'tf.Tensor(shape=(408, 3), dtype=float32)', 'tf.Tensor(shape=(0, 2), dtype=int32)', 'tf.Tensor(shape=(0, 3), dtype=int32)', 'tf.Tensor(shape=(1,), dtype=int32)', 'tf.Tensor(shape=(1,), dtype=int32)', 'tf.Tensor(shape=(0,), dtype=float32)', 'tf.Tensor(shape=(1, 3, 3), dtype=float32)', 'tf.Tensor(shape=(0, 2), dtype=int32)', 'None', 'None', 'None', 'tf.Tensor(shape=(0,), dtype=int32)', 'tf.Tensor(shape=(408,), dtype=int32)', 'tf.Tensor(shape=(1,), dtype=int32)']
+      • kwargs={'training': 'None'}
+
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Done

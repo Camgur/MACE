@@ -1,0 +1,55 @@
+
+#======================================================================
+# CRYSTAL DATA
+#----------------------------------------------------------------------
+data_VESTA_phase_1
+
+_chemical_name_common                  'Decalithium tin dodecathiodiphosphate'
+_cell_length_a                         8.7297(7)
+_cell_length_b                         8.7297(7)
+_cell_length_c                         12.7428(10)
+_cell_angle_alpha                      90.000000
+_cell_angle_beta                       90.000000
+_cell_angle_gamma                      90.000000
+_cell_volume                           971.098998
+_space_group_name_H-M_alt              'P 42/n m c'
+_space_group_IT_number                 137
+
+loop_
+_space_group_symop_operation_xyz
+   'x, y, z'
+   '-x, -y, z'
+   '-y+1/2, x+1/2, z+1/2'
+   'y+1/2, -x+1/2, z+1/2'
+   '-x+1/2, y+1/2, -z+1/2'
+   'x+1/2, -y+1/2, -z+1/2'
+   'y, x, -z'
+   '-y, -x, -z'
+   '-x+1/2, -y+1/2, -z+1/2'
+   'x+1/2, y+1/2, -z+1/2'
+   'y, -x, -z'
+   '-y, x, -z'
+   'x, -y, z'
+   '-x, y, z'
+   '-y+1/2, -x+1/2, z+1/2'
+   'y+1/2, x+1/2, z+1/2'
+
+loop_
+   _atom_site_label
+   _atom_site_occupancy
+   _atom_site_fract_x
+   _atom_site_fract_y
+   _atom_site_fract_z
+   _atom_site_adp_type
+   _atom_site_B_iso_or_equiv
+   _atom_site_type_symbol
+   Li1        0.3500  0.7585(17)  -0.2303(17)   0.6813(11)  Biso  2.200000 Li
+   Li2        0.8800  0.500000     0.000000     0.4468(18)  Biso  5.900000 Li
+   Li3        0.5000  0.761(2)    -0.277(2)     0.5429(13)  Biso  8.200000 Li
+   Li4        0.7400  0.500000     0.500000     0.752(2)    Biso  7.600000 Li
+   Sn1        0.5000  0.500000     0.000000     1.1885(4)   Biso  2.530000 Sn
+   P1         0.5000  0.500000     0.000000     1.1885(4)   Biso  2.530000 P
+   P2         1.0     0.500000     0.500000     1.000000    Biso  1.990000 P
+   S1         1.0     0.500000     0.6874(5)    0.9097(4)   Biso  2.570000 S
+   S2         1.0     0.500000    -0.2091(7)    0.5976(7)   Biso  3.500000 S
+   S3         1.0     0.500000     0.2029(7)    0.2896(5)   Biso  2.140000 S

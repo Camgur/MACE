@@ -1,0 +1,17 @@
+supercell -i "C:\Users\camgu\Goward\Code\MACE\materials\LAGP_263763.cif" -q -d -m -s 1x1x1 -c try -n l50 -o "C:\Users\camgu\Goward\Code\MACE\materials\LAGP_263763\" | tee log.log
+
+# Too many configurations
+supercell -i "C:\Users\camgu\Goward\Code\MACE\materials\LPSC_133976.cif" -q -d -m -s 1x1x1 -c try -n l50 -o "C:\Users\camgu\Goward\Code\MACE\materials\LPSC_133976\" | tee log.log
+
+# Changed spacegroup to 1st origin in VESTA (no Z axis order)
+supercell -i "C:\Users\camgu\Goward\Code\MACE\materials\LGPS_30161_1.cif" -q -d -m -s 1x1x1 -c try -n l5000 -o "C:\Users\camgu\Goward\Code\MACE\materials\LGPS_30161_1\" | tee log.log
+
+# Changed spacegroup to 1st origin in VESTA (no Z axis order)
+supercell -i "C:\Users\camgu\Goward\Code\MACE\materials\LSnPS_30173_1.cif" -q -d -m -s 1x1x1 -c try -n l5000 -o "C:\Users\camgu\Goward\Code\MACE\materials\LSnPS_30173\" | tee log.log
+
+supercell -i "C:\Users\camgu\Goward\Code\MACE\materials\LPSC_133976.cif" -q -d -m -s 1x1x1 -c try -n l50 -o "C:\Users\camgu\Goward\Code\MACE\materials\LPSC_133976\" | tee log.log
+
+# Changed to P1
+# Didn't work, energy = 0 eV
+# Pull 5,000 structures and run CHGNet to find lowest energy
+supercell -i "C:\Users\camgu\Goward\Code\MACE\materials\LSnPS_30173_p1.cif" -q -d -m -s 1x1x1 -c try -n l50 -o "C:\Users\camgu\Goward\Code\MACE\materials\LSnPS_30173\" | tee log.log

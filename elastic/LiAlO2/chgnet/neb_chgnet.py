@@ -1,5 +1,5 @@
 import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)
+warnings.simplefilter(action='ignore')
 
 import sys
 import os
@@ -26,7 +26,7 @@ atoms.calc = calculator
 
 atoms.set_constraint(FixSymmetry(atoms))
 opt = BFGS(atoms, trajectory=None)
-opt.run(fmax=1e-3, steps=200)
+opt.run(fmax=1e-2, steps=100)
 
 # Start NEB method
 
@@ -72,7 +72,7 @@ for q, e in zip(initial, final):
 for image in [initial, final]:
     image.calc = calculator
     optimizer = BFGS(image, trajectory=None)
-    optimizer.run(fmax=1e-5, steps=200)
+    optimizer.run(fmax=1e-3, steps=100)
 
 # Setup NEB
 images = [initial]
@@ -91,6 +91,6 @@ plt.savefig(filename + '_' + str(sys.argv[2]) + 'to' + str(sys.argv[3]) + '.png'
 
 # Optimize:
 optimizer = BFGS(neb, trajectory=filename + '_chgnet_' + str(sys.argv[2]) + 'to' + str(sys.argv[3]) + '.traj')
-optimizer.run(fmax=0.01, steps=300)
+optimizer.run(fmax=0.01, steps=200)
 
 print('Neb Finished!')

@@ -1,0 +1,48 @@
+&CONTROL
+   verbosity        = 'high'
+   outdir           = './out'
+   prefix           = 'LiAlO2_neb'
+   pseudo_dir       = '/home/camgur/Documents/Coding/Goward/espresso/pseudo'
+/
+&SYSTEM
+   ecutwfc          = 80
+   ecutrho          = 600
+   occupations      = 'smearing'
+   degauss          = 0.015
+   smearing         = 'cold'
+   ntyp             = 3
+   nat              = 15
+   ibrav            = 0
+/
+&ELECTRONS
+   conv_thr         = 1.0D-8
+   mixing_beta      = 0.4
+/
+&IONS
+/
+ATOMIC_SPECIES
+Li 6.94 Li.pbe-tm-gipaw-dc.UPF
+Al 26.9815385 Al.pbe-tm-gipaw-dc.UPF
+O 15.999 O.pbe-tm-new-gipaw-dc.UPF
+ATOMIC_POSITIONS angstrom
+Li       1.616997 3.549103 4.691312
+Li       1.394127 1.082579 2.86328
+Li       4.192806 4.204793 0.005346
+Al       3.473192 1.699244 4.693302
+Al       1.692272 3.480164 1.563198
+Al       4.273641 4.253957 3.132889
+Al       0.91315 0.893466 -0.004639
+O        4.338187 1.024327 6.052621
+O        0.853104 4.051736 3.000923
+O        3.6584 3.440919 4.563312
+O        1.427977 1.752478 1.423
+O        4.124821 0.826405 3.331497
+O        1.097413 4.311487 0.127958
+O        3.421365 3.755139 1.690063
+O        1.732924 1.524716 4.836625
+K_POINTS automatic
+7 7 6  0 0 0
+CELL_PARAMETERS angstrom
+5.16850000000000 0.00000000000000 0.00000000000000
+0.00000000000000 5.16850000000000 0.00000000000000
+0.00000000000000 0.00000000000000 6.25650000000000

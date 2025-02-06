@@ -23,8 +23,8 @@ calculator = MACECalculator(model_paths='/home/cgurwell/projects/rrg-ravh011/cgu
                             dispersion=False, device='cuda', default_dtype='float64')
 atoms.calc = calculator
 
-# Delete Al atom
-del atoms[4]
+# Replace Al atom with Ga
+atoms[4].symbol = 'Ga'
 
 # Run Optimise (No Cell Opt)
 opt = BFGS(atoms, trajectory=base + filename.replace('.cif', '.traj'))

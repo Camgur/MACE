@@ -13,13 +13,13 @@ from ase.geometry import distance, analysis
 from ase.neighborlist import build_neighbor_list, natural_cutoffs
 
 # Define Structure
-chgnet = 'MACE\optimise\LiFeV2O7\chgnet\opt_LiFeV2O7.cif'
-m3gnet = 'MACE\optimise\LiFeV2O7\m3gnet\opt_LiFeV2O7.cif'
-mace = 'MACE\optimise\LiFeV2O7\mace\opt_LiFeV2O7.cif'
-orb = 'MACE\optimise\LiFeV2O7\orb\opt_LiFeV2O7.cif'
+chgnet = 'MACE\optimise\LGP_263767\chgnet\opt_LGP_263767.cif'
+m3gnet = 'MACE\optimise\LGP_263767\m3gnet\opt_LGP_263767.cif'
+mace = 'MACE\optimise\LGP_263767\mace\opt_LGP_263767.cif'
+orb = 'MACE\optimise\LGP_263767\orb\opt_LGP_263767.cif'
 
-dft = 'MACE\optimise\LiFeV2O7/vasp\LiFeV2O7_vasp.cif'
-exp = 'MACE\optimise\LiFeV2O7\LiFeV2O7.cif'
+dft = 'MACE\optimise\LGP_263767\qe\LGP_qe_opt.cif'
+exp = 'MACE\optimise\LGP_263767\LGP_263767.cif'
 filepath = os.path.dirname(exp)
 
 s1, s2, s3, s4, s5, s6 = read(chgnet), read(m3gnet), read(mace), read(orb), read(dft), read(exp)
@@ -27,10 +27,11 @@ s1, s2, s3, s4, s5, s6 = read(chgnet), read(m3gnet), read(mace), read(orb), read
 
 
 # Define multiplier for bond distance
-multiply = 1.1
+multiply1 = 1.1
+multiply2 = 1.1
 
 # Bonds to find (separate elements by - and bonds by space e.g., Li-Fe-O V-Fe-O)
-types = 'Li-Fe-O'
+types = 'O-Li-O O-P-O'
 if ' ' in types:
     types = types.split(sep=' ')
     print('\nInput Bonds: ', types, '\n')
@@ -42,25 +43,7 @@ else:
 # Compile the parts
 compiled = [s1, s2, s3, s4, s5, s6]
 strings = ['chgnet', 'm3gnet', 'mace', 'orb', 'dft', 'exp']
-atoms = s1 + s2 + s3 + s4 + s5 + s6
 
-
-'''
-# Plot Atoms
-fig, axarr = plt.subplots(1, 4, figsize=(15, 5))
-plot_atoms(atoms, axarr[0], radii=0.7, rotation=('0x,0y,0z'))
-plot_atoms(atoms, axarr[1], scale=0.7, offset=(3, 4), radii=0.3, rotation=('0x,0y,0z'))
-plot_atoms(atoms, axarr[2], radii=0.7, rotation=('45x,45y,0z'))
-plot_atoms(atoms, axarr[3], radii=0.7, rotation=('0x,0y,0z'))
-axarr[0].set_title("No rotation")
-axarr[1].set_xlabel("X-axis, [$\mathrm{\AA}$]")
-axarr[1].set_ylabel("Y-axis, [$\mathrm{\AA}$]")
-axarr[2].set_axis_off()
-axarr[3].set_xlim(2, 6)
-axarr[3].set_ylim(2, 6)
-
-plt.show()
-'''
 
 compilation1 = np.zeros((len(types), 6, 1000))
 compilation2 = np.zeros((len(types), 5, 1000))
@@ -80,23 +63,22 @@ for type in types:
 
     for structure, string in zip(compiled, strings):
         total_diff = distance(s6, structure, permute=False)
-        print('\n' + string, ' total distance mismatch (A): ', total_diff)
+        # print('\n' + string, ' total distance mismatch (A): ', total_diff)
 
-        analyse = analysis.Analysis(s6, build_neighbor_list(s6, cutoffs=natural_cutoffs(s6, mult=multiply)))
-        analyse2 = analysis.Analysis(structure, build_neighbor_list(structure, cutoffs=natural_cutoffs(structure, mult=multiply)))
+        analyse = analysis.Analysis(s6, build_neighbor_list(s6, cutoffs=natural_cutoffs(s6, mult=multiply1)))
+        analyse2 = analysis.Analysis(structure, build_neighbor_list(structure, cutoffs=natural_cutoffs(structure, mult=multiply2)))
         bonds = analyse.get_angles(type[0], type[1], type[2], unique=True)
         bonds2 = analyse2.get_angles(type[0], type[1], type[2], unique=True)
-        try:
-            bonds_exp = np.array(analyse.get_values(bonds)[0])
-            bonds_struct = np.array(analyse2.get_values(bonds2)[0])
-        except:
-            pass
+
+        bonds_exp = np.array(analyse.get_values(bonds)[0])
+        bonds_struct = np.array(analyse2.get_values(bonds2)[0])
 
         try:
             bond_diff = np.abs(bonds_exp - bonds_struct)
         except:
             print('Failed to calculate bond for ' + string)
-            bond_diff = [0]
+            print('No broadcast: ', len(bonds_exp), len(bonds_struct))
+            bond_diff = [0, 0]
 
         compilation1[i, n, 0:len(bond_diff)] = bond_diff
         n += 1
@@ -142,25 +124,24 @@ for type in types:
 
     for structure, string in zip(compiled[:5], strings[:5]):
         total_diff = distance(s5, structure, permute=False)
-        print('\n' + string, ' total distance mismatch (A): ', total_diff)
+        # print('\n' + string, ' total distance mismatch (A): ', total_diff)
 
-        analyse = analysis.Analysis(s5, build_neighbor_list(s5, cutoffs=natural_cutoffs(s5, mult=multiply)))
-        analyse2 = analysis.Analysis(structure, build_neighbor_list(structure, cutoffs=natural_cutoffs(structure, mult=multiply)))
+        analyse = analysis.Analysis(s5, build_neighbor_list(s5, cutoffs=natural_cutoffs(s5, mult=multiply1)))
+        analyse2 = analysis.Analysis(structure, build_neighbor_list(structure, cutoffs=natural_cutoffs(structure, mult=multiply2)))
         bonds = analyse.get_angles(type[0], type[1], type[2], unique=True)
         bonds2 = analyse2.get_angles(type[0], type[1], type[2], unique=True)
-        try:
-            bonds_exp = np.array(analyse.get_values(bonds)[0])
-            bonds_struct = np.array(analyse2.get_values(bonds2)[0])
-        except:
-            pass
+
+        bonds_exp = np.array(analyse.get_values(bonds)[0])
+        bonds_struct = np.array(analyse2.get_values(bonds2)[0])
 
         try:
             bond_diff = np.abs(bonds_exp - bonds_struct)
         except:
             print('Failed to calculate bond for ' + string)
-            bond_diff = [0]
+            print('No broadcast: ', len(bonds_exp), len(bonds_struct))
+            bond_diff = [0, 0]
 
-        compilation2[i, n, 0:len(bond_diff)] = bond_diff
+        compilation1[i, n, 0:len(bond_diff)] = bond_diff
         n += 1
 
     i += 1

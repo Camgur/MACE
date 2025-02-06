@@ -1,0 +1,76 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) CCconfig        6)  ucx/1.14.1         11) flexiblas/3.3.1
+  2) gentoo/2023     7)  libfabric/1.18.0   12) imkl/2023.2.0
+  3) gcccore/.12.3   8)  pmix/4.2.4         13) StdEnv/2023
+  4) gcc/12.3        9)  ucc/1.2.0
+  5) hwloc/2.9.1     10) openmpi/4.1.5
+Lmod has detected the following error: The following module(s) are unknown:
+"cudann"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cudann"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+/home/cgurwell/env/orb/lib/python3.10/site-packages/orb_models/forcefield/pretrained.py:71: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(local_path, map_location="cpu")
+/shared_tmp/build_wheels_tmp.4407/python-3.10/torch/aten/src/ATen/native/cuda/IndexKernel.cu:93: operator(): block: [13,0,0], thread: [1,0,0] Assertion `-sizes[i] <= index && index < sizes[i] && "index out of bounds"` failed.
+GPU tensorfloat matmuls precision set to 'high'. This can achieve up to 2x speedup on Nvidia A100 and H100 devices.
+Traceback (most recent call last):
+  File "/scratch/cgurwell/asemd/LGPS/orb/orb_md.py", line 40, in <module>
+    init.run(10000)  # 10 ps
+  File "/home/cgurwell/env/orb/lib/python3.10/site-packages/ase/md/md.py", line 169, in run
+    return Dynamics.run(self, steps=steps)
+  File "/home/cgurwell/env/orb/lib/python3.10/site-packages/ase/optimize/optimize.py", line 283, in run
+    for converged in Dynamics.irun(self, steps=steps):
+  File "/home/cgurwell/env/orb/lib/python3.10/site-packages/ase/optimize/optimize.py", line 233, in irun
+    self.optimizable.get_forces()
+  File "/home/cgurwell/env/orb/lib/python3.10/site-packages/ase/optimize/optimize.py", line 34, in get_forces
+    return self.atoms.get_forces()
+  File "/home/cgurwell/env/orb/lib/python3.10/site-packages/ase/atoms.py", line 827, in get_forces
+    forces = self._calc.get_forces(self)
+  File "/home/cgurwell/env/orb/lib/python3.10/site-packages/ase/calculators/abc.py", line 30, in get_forces
+    return self.get_property('forces', atoms)
+  File "/home/cgurwell/env/orb/lib/python3.10/site-packages/ase/calculators/calculator.py", line 538, in get_property
+    self.calculate(atoms, [name], system_changes)
+  File "/home/cgurwell/env/orb/lib/python3.10/site-packages/orb_models/forcefield/calculator.py", line 68, in calculate
+    batch = ase_atoms_to_atom_graphs(
+  File "/home/cgurwell/env/orb/lib/python3.10/site-packages/orb_models/forcefield/atomic_system.py", line 141, in ase_atoms_to_atom_graphs
+    edge_feats, senders, receivers = _get_edge_feats(
+  File "/home/cgurwell/env/orb/lib/python3.10/site-packages/orb_models/forcefield/atomic_system.py", line 193, in _get_edge_feats
+    ) = featurization_utilities.compute_pbc_radius_graph(
+  File "/home/cgurwell/env/orb/lib/python3.10/site-packages/orb_models/forcefield/featurization_utilities.py", line 309, in compute_pbc_radius_graph
+    receivers = receivers_imgs % num_positions
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Running
+Done

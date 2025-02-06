@@ -6,3 +6,5 @@ The following modules were not unloaded:
   3) gcccore/.12.3   8)  pmix/4.2.4         13) StdEnv/2023
   4) gcc/12.3        9)  ucc/1.2.0
   5) hwloc/2.9.1     10) openmpi/4.1.5
+/home/cgurwell/orb/lib/python3.10/site-packages/ase/io/cif.py:834: UserWarning: Occupancies present but no occupancy info for "{symbol}"
+  warnings.warn(str(err))

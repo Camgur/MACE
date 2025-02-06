@@ -22,8 +22,8 @@ atoms = read(file)
 calculator = CHGNetCalculator(use_device='cuda')
 atoms.calc = calculator
 
-# Delete Al atom
-del atoms[4]
+# Replace Al atom with Ga
+atoms[4].symbol = 'Ga'
 
 # Run Optimise (No Cell Opt)
 opt = BFGS(atoms, trajectory=base + 'opt_' + filename.replace('.cif', '.traj'))

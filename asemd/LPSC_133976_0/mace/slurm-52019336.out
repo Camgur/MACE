@@ -1,0 +1,48 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) CCconfig        6)  ucx/1.14.1         11) flexiblas/3.3.1
+  2) gentoo/2023     7)  libfabric/1.18.0   12) imkl/2023.2.0
+  3) gcccore/.12.3   8)  pmix/4.2.4         13) StdEnv/2023
+  4) gcc/12.3        9)  ucc/1.2.0
+  5) hwloc/2.9.1     10) openmpi/4.1.5
+Traceback (most recent call last):
+  File "/scratch/cgurwell/asemd/LPSC_133976_0/mace/mace_md.py", line 25, in <module>
+    calculator = MACECalculator(model_paths='/home/cgurwell/projects/rrg-ravh011/cgurwell/opt/2024-01-07-mace-128-L2_epoch-199.model',
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cgurwell/MACE/lib/python3.11/site-packages/mace/calculators/mace.py", line 112, in __init__
+    self.models = [
+                  ^
+  File "/home/cgurwell/MACE/lib/python3.11/site-packages/mace/calculators/mace.py", line 113, in <listcomp>
+    torch.load(f=model_path, map_location=device) for model_path in model_paths
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cgurwell/MACE/lib/python3.11/site-packages/torch/serialization.py", line 1025, in load
+    return _load(opened_zipfile,
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cgurwell/MACE/lib/python3.11/site-packages/torch/serialization.py", line 1446, in _load
+    result = unpickler.load()
+             ^^^^^^^^^^^^^^^^
+  File "/home/cgurwell/MACE/lib/python3.11/site-packages/torch/serialization.py", line 1416, in persistent_load
+    typed_storage = load_tensor(dtype, nbytes, key, _maybe_decode_ascii(location))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cgurwell/MACE/lib/python3.11/site-packages/torch/serialization.py", line 1390, in load_tensor
+    wrap_storage=restore_location(storage, location),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cgurwell/MACE/lib/python3.11/site-packages/torch/serialization.py", line 1313, in restore_location
+    return default_restore_location(storage, map_location)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cgurwell/MACE/lib/python3.11/site-packages/torch/serialization.py", line 390, in default_restore_location
+    result = fn(storage, location)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cgurwell/MACE/lib/python3.11/site-packages/torch/serialization.py", line 270, in _cuda_deserialize
+    return obj.cuda(device)
+           ^^^^^^^^^^^^^^^^
+  File "/home/cgurwell/MACE/lib/python3.11/site-packages/torch/_utils.py", line 114, in _cuda
+    untyped_storage = torch.UntypedStorage(
+                      ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Done

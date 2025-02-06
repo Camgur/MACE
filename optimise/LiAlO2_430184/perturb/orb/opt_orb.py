@@ -24,8 +24,8 @@ orbff = pretrained.orb_v2(weights_path='/home/cgurwell/projects/rrg-ravh011/cgur
 calculator = ORBCalculator(orbff, device='cuda')
 atoms.calc = calculator
 
-# Delete Al atom
-del atoms[4]
+# Replace Al atom with Ga
+atoms[4].symbol = 'Ga'
 
 # Run Optimise (No Cell Opt)
 opt = BFGS(atoms, trajectory=base + 'opt_' + filename.replace('.cif', '.traj'))

@@ -13,25 +13,24 @@ from ase.geometry import get_distances, distance, analysis
 from ase.neighborlist import NeighborList,natural_cutoffs,build_neighbor_list,get_distance_indices,get_distance_matrix, get_connectivity_matrix
 
 # Define Structure
-chgnet = 'MACE\optimise\LiFeV2O7\chgnet\opt_LiFeV2O7.cif'
-m3gnet = 'MACE\optimise\LiFeV2O7\m3gnet\opt_LiFeV2O7.cif'
-mace = 'MACE\optimise\LiFeV2O7\mace\opt_LiFeV2O7.cif'
-orb = 'MACE\optimise\LiFeV2O7\orb\opt_LiFeV2O7.cif'
+chgnet = 'MACE\optimise\LTP_36777\chgnet\opt_LTP_36777.cif'
+m3gnet = 'MACE\optimise\LTP_36777\m3gnet\opt_LTP_36777.cif'
+mace = 'MACE\optimise\LTP_36777\mace\opt_LTP_36777.cif'
+orb = 'MACE\optimise\LTP_36777\orb\opt_LTP_36777.cif'
 
-dft = 'MACE\optimise\LiFeV2O7/vasp\LiFeV2O7_vasp.cif'
-exp = 'MACE\optimise\LiFeV2O7\LiFeV2O7.cif'
+dft = 'MACE\optimise\LTP_36777\qe\LTP_qe_opt.cif'
+exp = 'MACE\optimise\LTP_36777\LTP_36777.cif'
 filepath = os.path.dirname(exp)
 
 s1, s2, s3, s4, s5, s6 = read(chgnet), read(m3gnet), read(mace), read(orb), read(dft), read(exp)
 
-
 # Define multiplier for bond distance
 multiply1 = 1.0
-multiply2 = 1.12
+multiply2 = 1.0
 
 
 # Bonds to find (separate elements by - and bonds by space e.g., Li-Fe Fe-O Li-O)
-types = 'Li-Fe Fe-O Li-O'
+types = 'Ti-O Li-O P-O'
 if ' ' in types:
     types = types.split(sep=' ')
     print('\nInput Bonds: ', types, '\n')
@@ -43,28 +42,52 @@ else:
 # Compile the parts
 compiled = [s1, s2, s3, s4, s5, s6]
 strings = ['chgnet', 'm3gnet', 'mace', 'orb', 'dft', 'exp']
+
+
+
+
+
+'''
+# For generating plots
+compiled2 = [s1, s2, s3, s4, s5, s6]
 atoms = s1 + s2 + s3 + s4 + s5 + s6
 
+# Change active number of colours
+mol = [len(comp) for comp in compiled2]
+prec = np.linspace(0, 1, len(mol))
 
-'''
+
+numbers = [ele for ele in prec  for i in range(mol[0])]
+
+from matplotlib import colormaps
+map = colormaps.get_cmap('rainbow')
+colours = [map(num) for num in numbers]
+
 # Plot Atoms
-fig, axarr = plt.subplots(1, 4, figsize=(15, 5))
-plot_atoms(atoms, axarr[0], radii=0.7, rotation=('0x,0y,0z'))
-plot_atoms(atoms, axarr[1], scale=0.7, offset=(3, 4), radii=0.3, rotation=('0x,0y,0z'))
-plot_atoms(atoms, axarr[2], radii=0.7, rotation=('45x,45y,0z'))
-plot_atoms(atoms, axarr[3], radii=0.7, rotation=('0x,0y,0z'))
+fig, axarr = plt.subplots(1, 3, figsize=(15, 5))
+plot_atoms(atoms, axarr[0], radii=0.7, rotation=('0x,0y,0z'), colors = colours)
+# plot_atoms(atoms, axarr[1], scale=0.7, offset=(3, 4), radii=0.3, rotation=('0x,0y,0z'), colors = colours)
+plot_atoms(atoms, axarr[1], radii=0.7, rotation=('45x,45y,0z'), colors = colours)
+plot_atoms(atoms, axarr[2], radii=0.7, rotation=('0x,0y,0z'), colors = colours)
 axarr[0].set_title("No rotation")
-axarr[1].set_xlabel("X-axis, [$\mathrm{\AA}$]")
-axarr[1].set_ylabel("Y-axis, [$\mathrm{\AA}$]")
-axarr[2].set_axis_off()
-axarr[3].set_xlim(2, 6)
-axarr[3].set_ylim(2, 6)
+# axarr[1].set_xlabel("X-axis, [$\mathrm{\AA}$]")
+# axarr[1].set_ylabel("Y-axis, [$\mathrm{\AA}$]")
+axarr[1].set_axis_off()
+axarr[2].set_xlim(6, 10)
+axarr[2].set_ylim(6, 10)
 
 plt.show()
+
+assert 0
 '''
 
-compilation1 = np.zeros((len(types), 6, 100))
-compilation2 = np.zeros((len(types), 5, 100))
+
+
+
+
+
+compilation1 = np.zeros((len(types), 6, 150))
+compilation2 = np.zeros((len(types), 5, 150))
 
 
 # Run Compared to Experimental
