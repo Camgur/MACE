@@ -9,7 +9,7 @@
 
 
 # Loop over temperature
-temp='298.15 398.15 498.15 598.15'
+temp='300.0 400.0 500.0 600.0'
 for i in $temp; do
 
     # Concatenate input script with list temp
@@ -28,5 +28,5 @@ echo "Done"'
     foo="${a} ${i} ${b}"
 
     # Submit job to cluster
-    sbatch --nodes=1 --tasks-per-node=1 --mem=12G --gpus-per-node=v100l:1 --time=6:00:00 --job-name=${i}_m3gnet_LGPS --wrap="$foo"
+    sbatch --nodes=1 --tasks-per-node=1 --mem=12G --gpus-per-node=v100l:1 --time=12:00:00 --job-name=${i}_m3gnet_LGPS --wrap="$foo"
 done
