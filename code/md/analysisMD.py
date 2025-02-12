@@ -47,7 +47,7 @@ def calculate_msd(traj, atom_indices=None):
         msd[t] = np.mean(squared_displacement)
 
     return msd
-'''
+
 # Usage
 traj_file = r'MACE\asemd\LSnPS\chgnet\md_598_15_opt_LSnPS.traj'  # Replace with your trajectory file path
 traj = io.Trajectory(traj_file)
@@ -211,3 +211,4 @@ plt.legend()
 plt.savefig(r'MACE\asemd\LSnPS\activation_LSnPS.png')
 plt.savefig(r'MACE\asemd\LSnPS\activation_LSnPS.svg')
 plt.show()
+'''

@@ -1,0 +1,8 @@
+sbatch: NOTE: Your memory request of 12288.0M was likely submitted as 12.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+Submitted batch job 54269410
+sbatch: NOTE: Your memory request of 12288.0M was likely submitted as 12.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+Submitted batch job 54269416
+sbatch: NOTE: Your memory request of 12288.0M was likely submitted as 12.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+Submitted batch job 54269423
+sbatch: NOTE: Your memory request of 12288.0M was likely submitted as 12.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+Submitted batch job 54269430

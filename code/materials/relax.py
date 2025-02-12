@@ -28,9 +28,9 @@ from orb_models.forcefield.calculator import ORBCalculator
 
 
 # Set File
-file = r'MACE\asemd\LSnPS\unopt_LSnPS.cif'
+file = r'espresso\lithium\LZPO_relax\LZPO_91112.cif'
 filename = os.path.basename(file)
-base = r'C:\Users\camgu\Goward\Code\MACE\asemd\LSnPS'
+base = r'MACE\optimise\LZPO_91112/'
 
 
 def chg():
@@ -45,10 +45,10 @@ def chg():
     atoms.set_constraint(FixSymmetry(atoms))
 
     # Run Optimise (Cell Opt) allow relaxation of unit cell
-    opt = BFGS(FrechetCellFilter(atoms), trajectory=base + '/chgnet/' + 'opt_' + filename.replace('.cif', '.traj').replace('unopt_', ''))
+    opt = BFGS(FrechetCellFilter(atoms), trajectory=base + '/chgnet/' + 'fullopt_' + filename.replace('.cif', '.traj'))
     opt.run(fmax=1e-5, steps=100)
 
-    atoms.write(base + '/chgnet/' + 'opt_' + filename.replace('unopt_', ''))
+    atoms.write(base + '/chgnet/' + 'fullopt_' + filename)
 
 def m3g():
     # Importing CIF
@@ -63,17 +63,17 @@ def m3g():
     atoms.set_constraint(FixSymmetry(atoms))
 
     # Run Optimise (Cell Opt) allow relaxation of unit cell
-    opt = BFGS(FrechetCellFilter(atoms), trajectory=base + '/m3gnet/' + 'opt_' + filename.replace('.cif', '.traj').replace('unopt_', ''))
+    opt = BFGS(FrechetCellFilter(atoms), trajectory=base + '/m3gnet/' + 'fullopt_' + filename.replace('.cif', '.traj'))
     opt.run(fmax=1e-5, steps=100)
 
-    atoms.write(base + '/m3gnet/' + 'opt_' + filename.replace('unopt_', ''))
+    atoms.write(base + '/m3gnet/' + 'fullopt_' + filename)
 
 def mac():
     # Importing CIF
     atoms = read(file)
 
     # Setting the Calculator
-    calculator = MACECalculator(model_paths=r'MACE\2024-01-07-mace-128-L2_epoch-199.model',
+    calculator = MACECalculator(model_paths=r'MACE\models\2024-01-07-mace-128-L2_epoch-199.model',
                                 dispersion=False, device='cuda', default_dtype='float64')
     atoms.calc = calculator
 
@@ -81,17 +81,17 @@ def mac():
     atoms.set_constraint(FixSymmetry(atoms))
 
     # Run Optimise (Cell Opt) allow relaxation of unit cell
-    opt = BFGS(FrechetCellFilter(atoms), trajectory=base + '/mace/' + 'opt_' + filename.replace('.cif', '.traj').replace('unopt_', ''))
+    opt = BFGS(FrechetCellFilter(atoms), trajectory=base + '/mace/' + 'fullopt_' + filename.replace('.cif', '.traj'))
     opt.run(fmax=1e-5, steps=100)
 
-    atoms.write(base + '/mace/' + 'opt_' + filename.replace('unopt_', ''))
+    atoms.write(base + '/mace/' + 'fullopt_' + filename)
 
 def orb():
     # Importing CIF
     atoms = read(file)
 
     # Setting the Calculator
-    orbff = pretrained.orb_v2(device='cuda')
+    orbff = pretrained.orb_v2(weights_path='MACE\models\orb-v2-20241011.ckpt', device='cuda')
     calculator = ORBCalculator(orbff, device='cuda')
     atoms.calc = calculator
 
@@ -99,10 +99,10 @@ def orb():
     atoms.set_constraint(FixSymmetry(atoms))
 
     # Run Optimise (Cell Opt) allow relaxation of unit cell
-    opt = BFGS(FrechetCellFilter(atoms), trajectory=base + '/orb/' + 'opt_' + filename.replace('.cif', '.traj').replace('unopt_', ''))
+    opt = BFGS(FrechetCellFilter(atoms), trajectory=base + '/orb/' + 'fullopt_' + filename.replace('.cif', '.traj'))
     opt.run(fmax=1e-5, steps=100)
 
-    atoms.write(base + '/orb/' + 'opt_' + filename.replace('unopt_', ''))
+    atoms.write(base + '/orb/' + 'fullopt_' + filename)
 
 
 chg()
