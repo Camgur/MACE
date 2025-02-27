@@ -1,0 +1,46 @@
+
+#======================================================================
+# CRYSTAL DATA
+#----------------------------------------------------------------------
+data_VESTA_phase_1
+
+_chemical_name_common                  'XCrySDen XSF file'
+_cell_length_a                         5.242425
+_cell_length_b                         5.242425
+_cell_length_c                         6.347866
+_cell_angle_alpha                      90.000000
+_cell_angle_beta                       90.000000
+_cell_angle_gamma                      90.000000
+_cell_volume                           174.458545
+_space_group_name_H-M_alt              'P 1'
+_space_group_IT_number                 1
+
+loop_
+_space_group_symop_operation_xyz
+   'x, y, z'
+
+loop_
+   _atom_site_label
+   _atom_site_occupancy
+   _atom_site_fract_x
+   _atom_site_fract_y
+   _atom_site_fract_z
+   _atom_site_adp_type
+   _atom_site_U_iso_or_equiv
+   _atom_site_type_symbol
+   Li1        1.0     0.313658     0.686342     0.750000    Uiso  ? Li
+   Li2        1.0     0.686342     0.313658     0.250000    Uiso  ? Li
+   Li3        1.0     0.186342     0.186342     0.500000    Uiso  ? Li
+   Li4        1.0     0.813658     0.813658     0.000000    Uiso  ? Li
+   Al1        1.0     0.676981     0.323019     0.750000    Uiso  ? Al
+   Al2        1.0     0.323019     0.676981     0.250000    Uiso  ? Al
+   Al3        1.0     0.823019     0.823019     0.500000    Uiso  ? Al
+   Al4        1.0     0.176981     0.176981     0.000000    Uiso  ? Al
+   O1         1.0     0.839232     0.210143     0.976446    Uiso  ? O
+   O2         1.0     0.160768     0.789857     0.476446    Uiso  ? O
+   O3         1.0     0.710143     0.660768     0.726446    Uiso  ? O
+   O4         1.0     0.289857     0.339232     0.226446    Uiso  ? O
+   O5         1.0     0.789857     0.160768     0.523554    Uiso  ? O
+   O6         1.0     0.210143     0.839232     0.023554    Uiso  ? O
+   O7         1.0     0.660768     0.710143     0.273554    Uiso  ? O
+   O8         1.0     0.339232     0.289857     0.773554    Uiso  ? O

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.impute import SimpleImputer
 from ase import io
-
+'''
 def calculate_msd(traj, atom_indices=None):
     """
     Calculate the Mean Squared Displacement (MSD) from a trajectory file.
@@ -49,7 +49,7 @@ def calculate_msd(traj, atom_indices=None):
     return msd
 
 # Usage
-traj_file = r'MACE\asemd\LSnPS\chgnet\md_598_15_opt_LSnPS.traj'  # Replace with your trajectory file path
+traj_file = r'MACE\asemd\LSnPS\orb\md_300_0_opt_LSnPS.traj'  # Replace with your trajectory file path
 traj = io.Trajectory(traj_file)
 
 # Set timestep between iterations
@@ -115,24 +115,24 @@ plt.savefig(traj_file.replace('.traj', '.png'))
 '''
 
 
-temp = [298, 398, 498, 598]
+temp = [300, 400, 500, 600]
 # lagp
-# chgnet = [2.586e-10, 4.93e-10, 1.937e-9, 2.25e-9]
-# m3gnet = [1.544e-11, None, 1.144e-10, 5.317e-10]
-# mace = [1.734e-11, 1.196e-10, 6.069e-10, 1.233e-9]
-# orb = [5.384e-11, 1.723e-10, 3.229e-10, 6.955e-10]
+chgnet = [1.976e-10, 5.861e-10, 1.359e-9, 1.817e-9]
+m3gnet = [2.770e-11, 2.825e-11, 1.283e-10, 2.985e-10]
+mace = [1.189e-11, 2.249e-10, 6.173e-10, 1.117e-9]
+orb = [3.832e-11, 1.132e-10, 4.229e-10, 6.383e-10]
 
 # lgps
-# chgnet = [1.038e-9, 1.918e-9, 3.055e-9, 4.284e-9]
-# m3gnet = [None, 4.408e-9, 6.624e-9, 1.037e-8, ]
-# mace = [7.380e-11, 4.399e-10, 1.033e-9, 1.452e-9]
-# orb = [2.212e-11, None, 6.704e-10, 1.335e-9, ]
+# chgnet = [1.234e-9, 2.020e-9, 3.121e-9, 4.922e-9]
+# m3gnet = [1.848e-9, 3.722e-9, 6.603e-9, 1.010e-8, ]
+# mace = [1.321e-10, 4.642e-10, 9.283e-10, 1.401e-9]
+# orb = [2.501e-11, 1.964e-10, 9.212e-10, 1.325e-9, ]
 
 # lsnps
-chgnet = [7.088e-10, 1.828e-9, 3.28e-9, 5.833e-9]
-m3gnet = [1.275e-9, None, 7.156e-9, 1.021e-8]
-mace = [2.08e-11, 2.573e-10, 5.115e-10, 1.059e-9]
-orb = [3.132e-11, 2.01e-10, 3.633e-10, 1.008e-9]
+# chgnet = [7.545e-10, 1.981e-9, 3.587e-9, 5.250e-9]
+# m3gnet = [1.290e-9, 3.571e-9, 6.769e-9, 1.035e-8]
+# mace = [8.948e-12, 2.183e-10, 6.236e-10, 1.101e-9]
+# orb = [6.279e-11, 2.242e-10, 4.654e-10, 1.057e-9]
 
 
 
@@ -188,8 +188,9 @@ plt.xlabel('Temperature [K]', fontsize=16)
 plt.ylabel('Diffusion [m²/s]', fontsize=16)
 # plt.title('LSnPS Diffusion')
 plt.legend()
-plt.savefig(r'MACE\asemd\LSnPS\diff_LSnPS.png')
-plt.show()
+plt.savefig(r'MACE\asemd\LAGP\diffusion_LAGP.png')
+plt.savefig(r'MACE\asemd\LAGP\diffusion_LAGP.svg')
+# plt.show()
 
 f, ax = plt.subplots()
 plt.scatter(1000/np.array(temp), np.log(np.array(chgnet).astype('float')), label='chgnet', color='Blue', marker='o', s=60)
@@ -208,7 +209,6 @@ plt.xlabel('1000/T [1/K]', fontsize=16)
 plt.ylabel('ln(D)', fontsize=16)
 # plt.title('LSnPS Diffusion')
 plt.legend()
-plt.savefig(r'MACE\asemd\LSnPS\activation_LSnPS.png')
-plt.savefig(r'MACE\asemd\LSnPS\activation_LSnPS.svg')
-plt.show()
-'''
+plt.savefig(r'MACE\asemd\LAGP\activation_LAGP.png')
+plt.savefig(r'MACE\asemd\LAGP\activation_LAGP.svg')
+# plt.show()

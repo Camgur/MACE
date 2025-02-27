@@ -7,7 +7,7 @@ torch.set_default_device('cuda')
 from ase.optimize import BFGS
 
 from ase import atoms
-from ase.io import read
+from ase.io import read, Trajectory
 
 from ase.constraints import FixSymmetry
 from ase.filters import FrechetCellFilter
@@ -43,11 +43,15 @@ def chg():
 
     # Preserve Unit Cell Symmetry
     atoms.set_constraint(FixSymmetry(atoms))
+    print(atoms.get_volume())
 
     # Run Optimise (Cell Opt) allow relaxation of unit cell
-    opt = BFGS(FrechetCellFilter(atoms), trajectory=base + '/chgnet/' + 'fullopt_' + filename.replace('.cif', '.traj'))
-    opt.run(fmax=1e-5, steps=100)
-
+    cell = FrechetCellFilter(atoms)
+    opt = BFGS(cell)
+    traj = Trajectory(base + '/chgnet/' + 'fullopt_' + filename.replace('.cif', '.traj'), 'w', atoms)
+    opt.attach(traj)
+    opt.run(fmax=1e-2, steps=100)
+    print(atoms.get_volume())
     atoms.write(base + '/chgnet/' + 'fullopt_' + filename)
 
 def m3g():
@@ -107,5 +111,5 @@ def orb():
 
 chg()
 # m3g() # Doesn't work with windows in this version (int64 error in find spherical points)
-mac()
-orb()
+# mac()
+# orb()
